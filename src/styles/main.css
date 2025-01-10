@@ -1,1 +1,14 @@
+:root {
+    --primary-color: #1e1e2f;
+    --secondary-color: #ffffff;
+    --accent-color-purple: #9b59b6;
+    --accent-color-orange: #ff7f50;
+
+    --font-family-main: 'Roboto', sans-serif;
+
+    --spacing-small: 8px;
+    --spacing-medium: 16px;
+    --spacing-large: 32px;
+}
+
 /* Basic styles */
