@@ -53,3 +53,23 @@ nav a:hover {
     font-weight: bold;
     color: var(--accent-color-purple);
 }
+
+#hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    text-align: center;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-small);
+    color: var(--accent-color-purple);
+}
+
+#hero p {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
