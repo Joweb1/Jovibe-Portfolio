@@ -73,3 +73,18 @@ nav a:hover {
     font-size: 1.2rem;
     color: var(--secondary-color);
 }
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color-orange);
+    color: var(--secondary-color);
+    padding: var(--spacing-small) var(--spacing-medium);
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: var(--spacing-medium);
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-color-purple);
+}
