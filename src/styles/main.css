@@ -163,3 +163,35 @@ nav a:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+#contact {
+    padding: var(--spacing-large);
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-medium);
+    color: var(--accent-color-purple);
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contact input,
+#contact textarea {
+    padding: var(--spacing-medium);
+    border-radius: 5px;
+    border: 1px solid var(--accent-color-purple);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--secondary-color);
+}
+
+#contact button {
+    cursor: pointer;
+}
