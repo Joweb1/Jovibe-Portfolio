@@ -204,3 +204,25 @@ nav a:hover {
     cursor: pointer;
     border: none;
 }
+
+footer {
+    text-align: center;
+    padding: var(--spacing-large);
+    background-color: rgba(30, 30, 47, 0.8);
+    border-top: 1px solid var(--accent-color-purple);
+}
+
+.social-links {
+    margin-bottom: var(--spacing-medium);
+}
+
+.social-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin: 0 var(--spacing-small);
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color-orange);
+}
