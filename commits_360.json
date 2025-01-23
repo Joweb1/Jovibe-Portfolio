@@ -240,8 +240,8 @@
   {
     "commit_number": 35,
     "timestamp": "2025-02-05 10:00:00",
-    "task": "Add responsive navigation",
-    "instructions": "Implement responsive nav menu for mobile devices",
+    "task": "Add responsive navigation and make sure the index.html loads in the pages/home.html ",
+    "instructions": "Implement responsive nav menu for mobile devices and use js load in home.html",
     "commit_message": "Add mobile responsive navigation"
   },
   {
