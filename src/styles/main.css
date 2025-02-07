@@ -176,6 +176,26 @@ nav a:hover {
     margin-bottom: var(--spacing-small);
 }
 
+.project-links {
+    margin-top: var(--spacing-medium);
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-small);
+}
+
+.small-button {
+    padding: var(--spacing-small) var(--spacing-medium);
+    font-size: 0.9rem;
+}
+
+.github-button {
+    background-color: var(--accent-color-purple);
+}
+
+.github-button:hover {
+    background-color: var(--accent-color-orange);
+}
+
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
