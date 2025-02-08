@@ -254,7 +254,7 @@ nav a:hover {
 
 footer {
     text-align: center;
-    padding: var(--spacing-large);
+    padding: var(--spacing-large) 0; /* Adjusted padding */
     background-color: rgba(30, 30, 47, 0.8);
     border-top: 1px solid var(--accent-color-purple);
 }
