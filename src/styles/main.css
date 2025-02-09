@@ -33,6 +33,14 @@ header {
     background-color: rgba(30, 30, 47, 0.8);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--accent-color-purple);
+    position: sticky; /* Make header sticky */
+    top: 0;
+    z-index: 100; /* Ensure header is above other content */
+    transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+}
+
+header.scrolled {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
 }
 
 nav ul {
