@@ -310,7 +310,7 @@
   {
     "commit_number": 45,
     "timestamp": "2025-02-15 10:00:00",
-    "task": "Add team/about photos",
+    "task": "Add team/about photos and use material icons where neccessary import link",
     "instructions": "Add placeholder photos for about/team section",
     "commit_message": "Add team photos"
   },
