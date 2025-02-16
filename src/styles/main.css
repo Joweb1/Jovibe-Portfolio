@@ -138,6 +138,8 @@ nav a:hover {
     border-radius: 10px;
     padding: var(--spacing-large);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 900px; /* Limit width */
+    margin: 0 auto; /* Center the content */
 }
 
 .about-content img {
