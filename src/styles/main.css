@@ -123,11 +123,12 @@ nav a:hover::after {
     border-radius: 5px;
     text-decoration: none;
     margin-top: var(--spacing-medium);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .cta-button:hover {
     background-color: var(--accent-color-purple);
+    transform: scale(1.05);
 }
 
 #about {
