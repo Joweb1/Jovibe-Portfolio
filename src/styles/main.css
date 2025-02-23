@@ -396,4 +396,12 @@ footer {
         flex-direction: column;
         gap: var(--spacing-medium);
     }
+
+    #portfolio {
+        padding: var(--spacing-medium);
+    }
+
+    .portfolio-grid {
+        gap: var(--spacing-medium);
+    }
 }
