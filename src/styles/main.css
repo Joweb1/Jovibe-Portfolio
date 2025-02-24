@@ -283,6 +283,35 @@ nav a:hover::after {
     background-color: var(--accent-color-purple);
 }
 
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--accent-color-orange);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s;
+    z-index: 1000;
+}
+
+#scrollToTopBtn:hover {
+    background-color: var(--accent-color-purple);
+}
+
+#scrollToTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 footer {
     text-align: center;
     padding: var(--spacing-large) 0; /* Adjusted padding */
