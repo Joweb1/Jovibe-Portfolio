@@ -418,6 +418,10 @@ footer {
         font-size: 2rem;
     }
 
+    #hero {
+        height: 300px;
+    }
+
     .about-content {
         flex-direction: column;
     }
