@@ -233,6 +233,42 @@ nav a:hover::after {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+#testimonials {
+    padding: var(--spacing-large);
+}
+
+#testimonials h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: var(--spacing-medium);
+    color: var(--accent-color-purple);
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-large);
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: var(--spacing-large);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: var(--spacing-medium);
+}
+
+.testimonial-card span {
+    font-weight: bold;
+    color: var(--accent-color-orange);
+}
+
 #contact {
     padding: var(--spacing-large);
     text-align: center;
