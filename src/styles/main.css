@@ -257,6 +257,12 @@ nav a:hover::after {
     padding: var(--spacing-large);
     border: 1px solid rgba(255, 255, 255, 0.2);
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .testimonial-card p {
@@ -473,6 +479,14 @@ footer {
     }
 
     .portfolio-grid {
+        gap: var(--spacing-medium);
+    }
+
+    #testimonials {
+        padding: var(--spacing-medium);
+    }
+
+    .testimonial-grid {
         gap: var(--spacing-medium);
     }
 }
