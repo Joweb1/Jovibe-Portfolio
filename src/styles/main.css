@@ -275,6 +275,43 @@ nav a:hover::after {
     color: var(--accent-color-orange);
 }
 
+#blog {
+    padding: var(--spacing-large);
+}
+
+#blog h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: var(--spacing-medium);
+    color: var(--accent-color-purple);
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-large);
+}
+
+.blog-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: var(--spacing-large);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.blog-card h3 {
+    color: var(--accent-color-orange);
+    margin-bottom: var(--spacing-small);
+}
+
 #contact {
     padding: var(--spacing-large);
     text-align: center;
