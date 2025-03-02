@@ -526,4 +526,12 @@ footer {
     .testimonial-grid {
         gap: var(--spacing-medium);
     }
+
+    #blog {
+        padding: var(--spacing-medium);
+    }
+
+    .blog-grid {
+        gap: var(--spacing-medium);
+    }
 }
