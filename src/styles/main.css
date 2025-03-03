@@ -312,6 +312,17 @@ nav a:hover::after {
     margin-bottom: var(--spacing-small);
 }
 
+.blog-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: var(--spacing-medium);
+    transition: transform 0.3s ease;
+}
+
+.blog-card img:hover {
+    transform: scale(1.05);
+}
+
 #contact {
     padding: var(--spacing-large);
     text-align: center;
