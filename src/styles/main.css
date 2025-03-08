@@ -559,6 +559,14 @@ footer {
         flex-direction: column;
     }
 
+    #services {
+        padding: var(--spacing-medium);
+    }
+
+    .services-grid {
+        gap: var(--spacing-medium);
+    }
+
     .social-links {
         display: flex;
         flex-direction: column;
