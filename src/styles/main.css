@@ -366,6 +366,26 @@ nav a:hover::after {
     transform: scale(1.05);
 }
 
+#cta {
+    padding: var(--spacing-large);
+    text-align: center;
+    background-color: var(--primary-color); /* Dark background */
+    border-top: 1px solid var(--accent-color-purple);
+    border-bottom: 1px solid var(--accent-color-purple);
+}
+
+#cta h2 {
+    font-size: 2.5rem;
+    color: var(--accent-color-orange);
+    margin-bottom: var(--spacing-small);
+}
+
+#cta p {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-medium);
+}
+
 #contact {
     padding: var(--spacing-large);
     text-align: center;
