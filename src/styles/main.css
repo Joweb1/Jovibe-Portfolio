@@ -616,4 +616,12 @@ footer {
     .blog-grid {
         gap: var(--spacing-medium);
     }
+
+    #cta {
+        padding: var(--spacing-medium);
+    }
+
+    #cta h2 {
+        font-size: 2rem;
+    }
 }
