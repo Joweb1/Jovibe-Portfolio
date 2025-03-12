@@ -84,4 +84,38 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
         });
     });
+
+    // Contact form submission placeholder
+    const contactForm = document.querySelector('#contact form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const formProps = Object.fromEntries(formData);
+
+            console.log('Form submitted:', formProps);
+
+            // Simulate a backend call
+            try {
+                // Replace with your actual backend endpoint
+                const response = await fetch('/api/contact', { 
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formProps),
+                });
+
+                if (response.ok) {
+                    alert('Message sent successfully! (Placeholder)');
+                    contactForm.reset();
+                } else {
+                    alert('Failed to send message. Please try again. (Placeholder)');
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('An error occurred. Please try again later. (Placeholder)');
+            }
+        });
+    }
 });
