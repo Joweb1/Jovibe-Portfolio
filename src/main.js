@@ -118,4 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Dynamically update footer copyright year
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
 });
