@@ -634,3 +634,31 @@ footer {
         font-size: 2rem;
     }
 }
+
+@media (max-width: 480px) {
+    #portfolio .portfolio-grid,
+    #testimonials .testimonial-grid,
+    #blog .blog-grid,
+    #services .services-grid {
+        grid-template-columns: 1fr; /* Stack items on very small screens */
+    }
+
+    #portfolio .project-card,
+    #testimonials .testimonial-card,
+    #blog .blog-card,
+    #services .service-card {
+        padding: var(--spacing-medium); /* Adjust padding for smaller cards */
+    }
+
+    #hero h1 {
+        font-size: 1.8rem;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+
+    #cta h2 {
+        font-size: 1.8rem;
+    }
+}
