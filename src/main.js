@@ -124,4 +124,38 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
     }
+
+    // Theme toggle functionality
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    const enableLightTheme = () => {
+        body.classList.add('light-theme');
+        themeToggleBtn.querySelector('.material-icons').textContent = 'dark_mode';
+        localStorage.setItem('theme', 'light');
+    };
+
+    const enableDarkTheme = () => {
+        body.classList.remove('light-theme');
+        themeToggleBtn.querySelector('.material-icons').textContent = 'light_mode';
+        localStorage.setItem('theme', 'dark');
+    };
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        enableLightTheme();
+    } else {
+        enableDarkTheme(); // Default to dark theme if no preference or 'dark'
+    }
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            if (body.classList.contains('light-theme')) {
+                enableDarkTheme();
+            } else {
+                enableLightTheme();
+            }
+        });
+    }
 });
