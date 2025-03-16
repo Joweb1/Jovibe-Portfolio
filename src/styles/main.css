@@ -31,6 +31,7 @@ body {
     color: var(--secondary-color);
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
@@ -44,7 +45,7 @@ header {
     position: sticky; /* Make header sticky */
     top: 0;
     z-index: 100; /* Ensure header is above other content */
-    transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for shadow */
 }
 
 #theme-toggle {
@@ -503,6 +504,7 @@ footer {
     padding: var(--spacing-large) 0; /* Adjusted padding */
     background-color: rgba(30, 30, 47, 0.8);
     border-top: 1px solid var(--accent-color-purple);
+    transition: background-color 0.3s ease;
 }
 
 .social-links {
