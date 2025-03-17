@@ -132,6 +132,8 @@ nav a:hover::after {
     font-size: 3rem;
     margin-bottom: var(--spacing-small);
     color: var(--accent-color-purple);
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
 }
 
 #hero p {
