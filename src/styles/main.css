@@ -418,6 +418,14 @@ nav a:hover::after {
     margin-bottom: var(--spacing-medium);
 }
 
+.section-separator {
+    border: none;
+    border-top: 1px solid var(--accent-color-purple);
+    margin: var(--spacing-large) auto;
+    width: 80%;
+    max-width: 900px;
+}
+
 #contact {
     padding: var(--spacing-large);
     text-align: center;
