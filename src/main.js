@@ -158,4 +158,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Scroll reveal animations
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const observerOptions = {
+        root: null, // viewport
+        rootMargin: '0px',
+        threshold: 0.1 // 10% of element visible to trigger
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    }, observerOptions);
+
+    revealElements.forEach(el => observer.observe(el));
 });
