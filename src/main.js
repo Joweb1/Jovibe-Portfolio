@@ -178,4 +178,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     revealElements.forEach(el => observer.observe(el));
+
+    // Hide loading spinner once content is loaded
+    const loadingSpinner = document.getElementById('loading-spinner');
+    if (loadingSpinner) {
+        // Use a small timeout to ensure all content is rendered and animations start
+        setTimeout(() => {
+            loadingSpinner.classList.add('hidden');
+        }, 500); // Adjust timeout as needed
+    }
 });
