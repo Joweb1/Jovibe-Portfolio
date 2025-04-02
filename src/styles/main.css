@@ -99,6 +99,23 @@ header {
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for shadow */
 }
 
+#progress-bar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Thin progress bar */
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background */
+    z-index: 101; /* Above header */
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: var(--accent-color-orange); /* Accent color for progress */
+    transition: width 0.1s linear; /* Smooth progress animation */
+}
+
 #theme-toggle {
     background: none;
     border: none;

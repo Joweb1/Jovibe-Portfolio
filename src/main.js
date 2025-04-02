@@ -187,4 +187,16 @@ document.addEventListener('DOMContentLoaded', () => {
             loadingSpinner.classList.add('hidden');
         }, 500); // Adjust timeout as needed
     }
+
+    // Scroll progress indicator
+    const progressBar = document.getElementById('progress-bar');
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (scrollTop / scrollHeight) * 100;
+        if (progressBar) {
+            progressBar.style.width = scrolled + '%';
+        }
+    });
 });
