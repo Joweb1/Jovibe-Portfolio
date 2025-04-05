@@ -201,4 +201,28 @@ document.addEventListener('DOMContentLoaded', () => {
             progressBar.style.width = scrolled + '%';
         }
     });
+
+    // Portfolio filter functionality
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const projectCards = document.querySelectorAll('.portfolio-grid .project-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to the clicked button
+            button.classList.add('active');
+
+            const filter = button.dataset.filter;
+
+            projectCards.forEach(card => {
+                const categories = card.dataset.category.split(' ');
+                if (filter === 'all' || categories.includes(filter)) {
+                    card.style.display = 'block'; // Show the card
+                } else {
+                    card.style.display = 'none'; // Hide the card
+                }
+            });
+        });
+    });
 });

@@ -326,6 +326,36 @@ nav a:hover::after {
     color: var(--accent-color-purple);
 }
 
+#portfolio-filters {
+    text-align: center;
+    margin-bottom: var(--spacing-large);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-small);
+}
+
+.filter-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--secondary-color);
+    border: 1px solid var(--accent-color-purple);
+    padding: var(--spacing-small) var(--spacing-medium);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: var(--accent-color-purple);
+    border-color: var(--accent-color-orange);
+}
+
+.filter-button.active {
+    background-color: var(--accent-color-orange);
+    border-color: var(--accent-color-orange);
+    color: var(--primary-color); /* Dark text for contrast */
+}
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
