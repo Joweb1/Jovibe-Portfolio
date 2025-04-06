@@ -218,9 +218,9 @@ document.addEventListener('DOMContentLoaded', () => {
             projectCards.forEach(card => {
                 const categories = card.dataset.category.split(' ');
                 if (filter === 'all' || categories.includes(filter)) {
-                    card.style.display = 'block'; // Show the card
+                    card.classList.remove('hidden-card'); // Show the card
                 } else {
-                    card.style.display = 'none'; // Hide the card
+                    card.classList.add('hidden-card'); // Hide the card
                 }
             });
         });
