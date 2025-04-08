@@ -702,8 +702,8 @@
   {
     "commit_number": 101,
     "timestamp": "2025-04-12 10:00:00",
-    "task": "Add testimonials carousel functionality",
-    "instructions": "Implement JS to cycle through testimonial cards automatically",
+    "task": "Add testimonials carousel functionality and make sure all the sections are visible and displaying properly",
+    "instructions": "Implement JS to cycle through testimonial cards automatically and all sections should be visible and animated nice when in view use js",
     "commit_message": "Add testimonials carousel functionality"
   },
   {
