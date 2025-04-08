@@ -590,6 +590,54 @@ nav a:hover::after {
     line-height: 1.6;
 }
 
+#newsletter {
+    padding: var(--spacing-large);
+    text-align: center;
+    background-color: var(--primary-color);
+    border-top: 1px solid var(--accent-color-purple);
+    border-bottom: 1px solid var(--accent-color-purple);
+}
+
+#newsletter h2 {
+    font-size: 2.5rem;
+    color: var(--accent-color-orange);
+    margin-bottom: var(--spacing-small);
+}
+
+#newsletter p {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-medium);
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-medium);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-form input[type="email"] {
+    flex-grow: 1;
+    padding: var(--spacing-medium);
+    border-radius: 5px;
+    border: 1px solid var(--accent-color-purple);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--secondary-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--accent-color-orange);
+    box-shadow: 0 0 10px rgba(255, 127, 80, 0.5);
+}
+
+.newsletter-form .cta-button {
+    margin-top: 0; /* Override default cta-button margin */
+}
+
 #cta {
     padding: var(--spacing-large);
     text-align: center;

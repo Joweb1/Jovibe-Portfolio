@@ -674,9 +674,9 @@
   {
     "commit_number": 97,
     "timestamp": "2025-04-08 10:00:00",
-    "task": "Add newsletter signup section",
-    "instructions": "Create a newsletter subscription form section",
-    "commit_message": "Add newsletter signup section"
+    "task": "Add newsletter signup section and make sure all the sections are visible and displaying properly",
+    "instructions": "Create a newsletter subscription form section, the sections should be visible and animated nice when in view use js",
+    "commit_message": "Add newsletter signup section, and adjust section visibility"
   },
   {
     "commit_number": 98,
