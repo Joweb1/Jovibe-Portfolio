@@ -638,6 +638,13 @@ nav a:hover::after {
     margin-top: 0; /* Override default cta-button margin */
 }
 
+#newsletter-confirmation {
+    margin-top: var(--spacing-medium);
+    font-size: 1.1rem;
+    color: var(--accent-color-purple);
+    font-weight: bold;
+}
+
 #cta {
     padding: var(--spacing-large);
     text-align: center;
