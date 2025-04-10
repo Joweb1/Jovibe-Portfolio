@@ -643,6 +643,12 @@ nav a:hover::after {
     font-size: 1.1rem;
     color: var(--accent-color-purple);
     font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#newsletter-confirmation.show {
+    opacity: 1;
 }
 
 #cta {

@@ -229,4 +229,40 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // Newsletter form submission placeholder
+    const newsletterForm = document.querySelector('.newsletter-form');
+    const newsletterConfirmation = document.getElementById('newsletter-confirmation');
+
+    if (newsletterForm && newsletterConfirmation) {
+        newsletterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(newsletterForm);
+            const email = formData.get('email');
+
+            console.log('Newsletter subscribed with email:', email);
+
+            // Simulate a backend call
+            try {
+                // Replace with your actual backend endpoint
+                const response = await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email }),
+                });
+
+                if (response.ok) {
+                    newsletterForm.style.display = 'none'; // Hide the form
+                    newsletterConfirmation.classList.add('show'); // Show confirmation with animation
+                } else {
+                    alert('Failed to subscribe. Please try again. (Placeholder)');
+                }
+            } catch (error) {
+                console.error('Error subscribing:', error);
+                alert('An error occurred. Please try again later. (Placeholder)');
+            }
+        });
+    }
 });
