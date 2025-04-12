@@ -475,6 +475,50 @@ nav a:hover::after {
     color: var(--accent-color-orange);
 }
 
+.testimonial-carousel {
+    position: relative;
+    max-width: 900px; /* Adjust as needed */
+    margin: 0 auto var(--spacing-large) auto;
+    overflow: hidden;
+}
+
+.testimonial-carousel .testimonial-grid {
+    display: flex;
+    overflow-x: hidden; /* Hide scrollbar */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scroll-behavior: smooth;
+    gap: var(--spacing-large);
+}
+
+.testimonial-carousel .testimonial-card {
+    flex: 0 0 100%; /* Each card takes full width */
+    scroll-snap-align: start;
+    /* Reset some grid specific styles if necessary */
+    margin-bottom: 0;
+}
+
+.carousel-dots {
+    text-align: center;
+    margin-top: var(--spacing-medium);
+}
+
+.carousel-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-dot.active {
+    background-color: var(--accent-color-orange);
+    transform: scale(1.2);
+}
+
 #blog {
     padding: var(--spacing-large);
 }

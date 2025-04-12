@@ -265,4 +265,64 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Testimonials carousel functionality
+    const testimonialCarousel = document.querySelector('.testimonial-carousel');
+    const testimonialGrid = testimonialCarousel ? testimonialCarousel.querySelector('.testimonial-grid') : null;
+    const testimonialCards = testimonialGrid ? testimonialGrid.querySelectorAll('.testimonial-card') : [];
+    const carouselDotsContainer = testimonialCarousel ? testimonialCarousel.querySelector('.carousel-dots') : null;
+
+    if (testimonialCarousel && testimonialGrid && testimonialCards.length > 0 && carouselDotsContainer) {
+        let currentIndex = 0;
+        let intervalId;
+
+        const createDots = () => {
+            testimonialCards.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('carousel-dot');
+                if (index === 0) {
+                    dot.classList.add('active');
+                }
+                dot.addEventListener('click', () => goToSlide(index));
+                carouselDotsContainer.appendChild(dot);
+            });
+        };
+
+        const updateDots = () => {
+            const dots = carouselDotsContainer.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        };
+
+        const goToSlide = (index) => {
+            testimonialGrid.scrollLeft = testimonialCards[index].offsetLeft;
+            currentIndex = index;
+            updateDots();
+        };
+
+        const nextSlide = () => {
+            currentIndex = (currentIndex + 1) % testimonialCards.length;
+            goToSlide(currentIndex);
+        };
+
+        const startCarousel = () => {
+            intervalId = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        };
+
+        const stopCarousel = () => {
+            clearInterval(intervalId);
+        };
+
+        createDots();
+        startCarousel();
+
+        // Pause carousel on hover
+        testimonialCarousel.addEventListener('mouseenter', stopCarousel);
+        testimonialCarousel.addEventListener('mouseleave', startCarousel);
+    }
 });
