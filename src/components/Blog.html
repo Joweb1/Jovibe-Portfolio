@@ -1,19 +1,25 @@
 <section id="blog">
     <h2>From the Blog</h2>
+    <div class="blog-filters">
+        <button class="filter-button active" data-filter="all">All</button>
+        <button class="filter-button" data-filter="css">CSS</button>
+        <button class="filter-button" data-filter="javascript">JavaScript</button>
+        <button class="filter-button" data-filter="design">Design</button>
+    </div>
     <div class="blog-grid">
-        <div class="blog-card">
+        <div class="blog-card" data-category="css">
             <img src="assets/project-placeholder.png" alt="Blog Post 1 Thumbnail">
             <h3>Mastering CSS Grid</h3>
             <p>Mastering CSS Grid: A deep dive into the power of CSS Grid and how it can help you create complex, responsive layouts with ease.</p>
             <a href="#" class="cta-button small-button" aria-label="Read more about Mastering CSS Grid">Read More</a>
         </div>
-        <div class="blog-card">
+        <div class="blog-card" data-category="javascript">
             <img src="assets/project-placeholder.png" alt="Blog Post 2 Thumbnail">
             <h3>JavaScript ES2025 Features</h3>
             <p>JavaScript ES2025 Features: A comprehensive overview of the exciting new features and improvements in the latest version of JavaScript.</p>
             <a href="#" class="cta-button small-button" aria-label="Read more about JavaScript ES2025 Features">Read More</a>
         </div>
-        <div class="blog-card">
+        <div class="blog-card" data-category="design">
             <img src="assets/project-placeholder.png" alt="Blog Post 3 Thumbnail">
             <h3>UI/UX Design Principles</h3>
             <p>UI/UX Design Principles: A practical guide to creating intuitive, user-friendly, and beautiful interfaces that will delight your users.</p>

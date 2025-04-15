@@ -325,4 +325,28 @@ document.addEventListener('DOMContentLoaded', () => {
         testimonialCarousel.addEventListener('mouseenter', stopCarousel);
         testimonialCarousel.addEventListener('mouseleave', startCarousel);
     }
+
+    // Blog filter functionality
+    const blogFilterButtons = document.querySelectorAll('.blog-filters .filter-button');
+    const blogCards = document.querySelectorAll('.blog-grid .blog-card');
+
+    blogFilterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            blogFilterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to the clicked button
+            button.classList.add('active');
+
+            const filter = button.dataset.filter;
+
+            blogCards.forEach(card => {
+                const category = card.dataset.category;
+                if (filter === 'all' || category === filter) {
+                    card.style.display = 'block'; // Show the card
+                } else {
+                    card.style.display = 'none'; // Hide the card
+                }
+            });
+        });
+    });
 });
