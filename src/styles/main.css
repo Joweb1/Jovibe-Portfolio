@@ -907,12 +907,16 @@ footer {
         transform: rotate(-45deg); /* Rotate to form an 'X' */
     }
 
-    #hero h1 {
-        font-size: 2rem;
+    #hero {
+        height: 60vh; /* Adjust height for tablets */
     }
 
-    #hero {
-        height: 300px;
+    #hero h1 {
+        font-size: 2.5rem; /* Adjust font size for tablets */
+    }
+
+    #hero p {
+        font-size: 1.1rem; /* Adjust font size for tablets */
     }
 
     .about-content {
@@ -982,11 +986,11 @@ footer {
     }
 
     #hero h1 {
-        font-size: 1.8rem;
+        font-size: 1.8rem; /* Further adjust font size for mobile */
     }
 
     #hero p {
-        font-size: 1rem;
+        font-size: 0.9rem; /* Further adjust font size for mobile */
     }
 
     #cta h2 {
