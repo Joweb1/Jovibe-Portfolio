@@ -635,11 +635,16 @@ nav a:hover::after {
 }
 
 #newsletter {
-    padding: var(--spacing-large);
+    padding: var(--spacing-medium) 0; /* Adjusted padding for sticky bar */
     text-align: center;
-    background-color: var(--primary-color);
+    background-color: rgba(30, 30, 47, 0.9); /* Slightly transparent dark background */
     border-top: 1px solid var(--accent-color-purple);
     border-bottom: 1px solid var(--accent-color-purple);
+    position: sticky; /* Make newsletter sticky */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width */
+    z-index: 90; /* Ensure it's above most content but below header/progress */
+    transition: background-color 0.3s ease;
 }
 
 #newsletter h2 {
