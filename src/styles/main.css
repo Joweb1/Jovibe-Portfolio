@@ -850,6 +850,57 @@ footer {
     font-weight: bold;
 }
 
+.project-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px; /* Match project-card border-radius */
+}
+
+.project-image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 30, 47, 0.9); /* Dark overlay with transparency */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: var(--spacing-medium);
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-overlay h3 {
+    color: var(--accent-color-orange);
+    margin-bottom: var(--spacing-small);
+}
+
+.project-overlay p {
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-medium);
+}
+
+.project-overlay .tech-stack,
+.project-overlay .project-categories,
+.project-overlay .project-links {
+    margin-top: var(--spacing-small);
+    margin-bottom: var(--spacing-small);
+}
+
 @media (max-width: 768px) {
     header {
         flex-direction: row; /* Keep logo and toggle on one line */
@@ -1062,21 +1113,4 @@ body {
     100% {
         background-position: 0% 20%, 100% 15%, 50% 18%, 0% 0%;
     }
-}
-.tech-stack {
-    margin-top: var(--spacing-small);
-    margin-bottom: var(--spacing-medium);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-small);
-}
-
-.tech-badge {
-    background-color: rgba(255, 127, 80, 0.2); /* Orange with transparency */
-    color: var(--accent-color-orange);
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    font-weight: bold;
 }
