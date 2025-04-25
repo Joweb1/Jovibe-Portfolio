@@ -1046,7 +1046,6 @@ footer {
 
 @media (max-width: 480px) {
     #portfolio .portfolio-grid,
-    #testimonials .testimonial-grid,
     #blog .blog-grid,
     #services .services-grid {
         grid-template-columns: 1fr; /* Stack items on very small screens */
