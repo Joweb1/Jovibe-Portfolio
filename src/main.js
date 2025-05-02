@@ -63,15 +63,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth'
-            });
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+            smoothScrollTo(targetPosition, 800); // 800ms duration
         }
         // Close mobile menu after clicking a link
         if (navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
             menuToggle.classList.remove('active');
         }
+    };
+
+    // Easing function for smooth scroll
+    const easeInOutQuad = (t, b, c, d) => {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    };
+
+    // Custom smooth scroll function
+    const smoothScrollTo = (targetY, duration, easing = easeInOutQuad) => {
+        const startY = window.pageYOffset;
+        const distance = targetY - startY;
+        let startTime = null;
+
+        const animation = (currentTime) => {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const run = easing(timeElapsed, startY, distance, duration);
+            window.scrollTo(0, run);
+            if (timeElapsed < duration) requestAnimationFrame(animation);
+        };
+        requestAnimationFrame(animation);
     };
 
     // Toggle mobile menu
