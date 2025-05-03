@@ -901,6 +901,13 @@ footer {
     margin-bottom: var(--spacing-small);
 }
 
+.author-title {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-top: 5px; /* Small space between name and title */
+    display: block; /* Ensure it takes its own line */
+}
+
 @media (max-width: 768px) {
     header {
         flex-direction: row; /* Keep logo and toggle on one line */
