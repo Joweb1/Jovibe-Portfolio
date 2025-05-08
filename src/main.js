@@ -263,6 +263,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(newsletterForm);
             const email = formData.get('email');
 
+            // Basic email validation
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter a valid email address.');
+                return; // Stop form submission
+            }
+
             console.log('Newsletter subscribed with email:', email);
 
             // Simulate a backend call
