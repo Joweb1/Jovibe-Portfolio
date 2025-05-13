@@ -947,15 +947,15 @@
   {
     "commit_number": 136,
     "timestamp": "2025-05-17 10:00:00",
-    "task": "Add footer link hover animation",
-    "instructions": "Animate footer links on hover with color or underline",
+    "task": "Add footer link hover animation and remove pages background gradient color",
+    "instructions": "Animate footer links on hover with color or underline, and remove the background animated background color",
     "commit_message": "Add footer link hover animation"
   },
   {
     "commit_number": 137,
     "timestamp": "2025-05-18 10:00:00",
-    "task": "Add hero text responsive scaling",
-    "instructions": "Adjust hero section font size and spacing on small screens",
+    "task": "Add hero text responsive scaling, and adjust text and sections colors to be adaptive to the light mode",
+    "instructions": "Adjust hero section font size and spacing on small screens, and make website adaptive to light mode or theme",
     "commit_message": "Make hero text responsive"
   },
   {
