@@ -180,7 +180,7 @@ nav a:hover::after {
     align-items: center;
     height: 400px;
     text-align: center;
-    background: url('../assets/hero-background.png') no-repeat center center/cover;
+    background: url('../assets/hero-background.png') no-repeat center center/cover fixed; /* Added fixed for parallax */
     position: relative;
     z-index: 1; /* Ensure content is above background */
 }
