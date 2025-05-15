@@ -129,10 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        smoothScrollTo(0, 800); // Use custom smoothScrollTo with easing
     });
 
     // Contact form submission placeholder
