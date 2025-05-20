@@ -203,6 +203,10 @@ nav a:hover::after {
     transform-origin: bottom left;
 }
 
+nav a.active {
+    color: var(--accent-color-orange);
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: bold;

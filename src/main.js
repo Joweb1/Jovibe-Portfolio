@@ -397,4 +397,27 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // Nav section highlight on scroll
+    const navLinksForScroll = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section'); // Assuming your sections have a <section> tag
+
+    const activateNavLink = () => {
+        let currentSectionId = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 60) { // 60px offset for header height
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        navLinksForScroll.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
+                link.classList.add('active');
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', activateNavLink);
 });

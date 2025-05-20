@@ -6,16 +6,16 @@ import os
 # -----------------------------
 PROJECTS = {
     "Jovibe Portfolio": {
-        "theme": "Dark, Modern, Minimal",
+        "theme": "Dark and light, Modern, Minimal",
         "primary_colors": ["#1e1e2f", "#ffffff"],  # Dark background, white text
         "accent_colors": ["#9b59b6", "#ff7f50"],  # Purple and Orange
-        "stack": ["HTML", "CSS", "JavaScript", "React", "TailwindCSS", "Framer Motion"],
+        "stack": ["HTML", "CSS", "JavaScript", "TailwindCSS"],
         "style": "Glassmorphism cards, smooth animations, responsive layout",
         "design_pattern": "Component-based with reusable UI modules",
         "branding": {
             "logo": "jovibe_logo.png",
             "font": "Roboto, sans-serif",
-            "icon_set": "Lucide Icons"
+            "icon_set": "Material Icons"
         },
         "mock_data": {
             "portfolio": "6-8 sample projects with title, image, description, tech stack",
@@ -23,7 +23,7 @@ PROJECTS = {
             "testimonials": "3 sample testimonials with name, message, role",
             "contact_form": "Mock form with name, email, message"
         },
-        "special_effects": "3D neon wave blurry background animation, smooth color transitions"
+        "special_effects": "smooth color transitions"
     }
 }
 
@@ -57,7 +57,7 @@ Project Details:
 """
     else:
         # Less detailed prompt for subsequent iterations
-        project_info = f"Project '{project_name}', Dark theme with purple & orange accents, glassmorphism, smooth animations, 3D neon wave background."
+        project_info = f"Project '{project_name}', Dark and light theme with purple & orange accents, glassmorphism, smooth animations, modern layout and design."
 
     prompt = f"""
 You are working on project '{project_name}'.
@@ -73,11 +73,10 @@ Commit Task Details:
 Instructions for AI Agent:
 1. Implement the task according to the project theme, style, stack, and mock data.
 2. Ensure responsive design and smooth animations.
-3. Use glassmorphism, neon background, and color accents as described.
+3. Use glassmorphism, and color accents as described.
 4. Commit the changes with:
    git add . && git commit -m "{commit['commit_message']}" --date="{commit['timestamp']}"
-5. If this is the first run, include full project context; otherwise, use this prompt for iteration.
-6. Prepare for the next commit by running this script again to get the next task.
+5. Prepare for the next commit by running this script again to get the next task.
 
 Output:
 - Provide implementation steps for this commit only.
