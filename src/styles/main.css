@@ -1200,6 +1200,19 @@ footer {
         gap: var(--spacing-medium);
     }
 
+    #faq {
+        padding: var(--spacing-medium);
+    }
+
+    .faq-question {
+        padding: var(--spacing-small) var(--spacing-medium);
+        font-size: 1rem;
+    }
+
+    .faq-answer {
+        padding: 0 var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
+    }
+
     #blog {
         padding: var(--spacing-medium);
     }
