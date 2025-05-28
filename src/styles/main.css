@@ -105,6 +105,7 @@ body.light-theme {
     --accent-color-purple: #6a1b9a; /* Darker purple */
     --accent-color-orange: #ff5722; /* Darker orange */
     --header-bg-color: rgba(240, 242, 245, 0.8); /* Light theme header background */
+    --header-bg-scrolled-color: rgba(240, 242, 245, 0.95); /* Light theme scrolled header background */
     --hero-overlay-color: rgba(255, 255, 255, 0.5); /* Light theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.6); /* Light theme glassmorphism background */
     --glass-border-color: rgba(0, 0, 0, 0.1); /* Light theme glassmorphism border */
@@ -120,6 +121,7 @@ body.light-theme {
     --accent-color-purple: #9b59b6;
     --accent-color-orange: #ff7f50;
     --header-bg-color: rgba(30, 30, 47, 0.8); /* Dark theme header background */
+    --header-bg-scrolled-color: rgba(30, 30, 47, 0.95); /* Dark theme scrolled header background */
     --hero-overlay-color: rgba(0, 0, 0, 0.5); /* Dark theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.1); /* Dark theme glassmorphism background */
     --glass-border-color: rgba(255, 255, 255, 0.2); /* Dark theme glassmorphism border */
@@ -167,8 +169,9 @@ body.light-theme {
 }
 
 header.scrolled {
+    background-color: var(--header-bg-scrolled-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
-    transition: box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 nav ul {
