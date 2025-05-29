@@ -348,6 +348,11 @@ nav a.active {
     font-size: 3rem;
     color: var(--accent-color-orange);
     margin-bottom: var(--spacing-medium);
+    transition: transform 0.3s ease-in-out;
+}
+
+.service-card:hover .material-icons {
+    transform: translateY(-10px) scale(1.1);
 }
 
 .service-card h3 {
