@@ -227,7 +227,7 @@ nav a.active {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    min-height: 400px;
     text-align: center;
     position: relative;
     z-index: 1;
@@ -835,7 +835,7 @@ nav a.active {
     border-top: 1px solid var(--accent-color-purple);
     margin: var(--spacing-large) auto;
     width: 80%;
-    max-width: 900px;
+    max-width: 600px;
 }
 
 #contact {
@@ -1193,6 +1193,11 @@ footer {
         flex-direction: column;
     }
 
+    .about-content img {
+        width: 150px;
+        height: 150px;
+    }
+
     #services {
         padding: var(--spacing-medium);
     }
@@ -1252,6 +1257,10 @@ footer {
     #cta h2 {
         font-size: 2rem;
     }
+
+    #contact form {
+        gap: var(--spacing-small);
+    }
 }
 
 @media (max-width: 480px) {
@@ -1278,6 +1287,11 @@ footer {
 
     #cta h2 {
         font-size: 1.8rem;
+    }
+
+    #contact input,
+    #contact textarea {
+        padding: var(--spacing-small);
     }
 }
 
