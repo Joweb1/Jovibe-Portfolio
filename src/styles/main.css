@@ -201,7 +201,7 @@ nav a::after {
     transition: transform 0.3s ease-out;
 }
 
-nav a:hover::after {
+nav a:hover::after, nav a.active::after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
@@ -216,11 +216,7 @@ nav a.active {
     color: var(--accent-color-purple);
 }
 
-@keyframes hero-gradient-animation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+
 
 #hero {
     display: flex;
@@ -231,9 +227,6 @@ nav a.active {
     text-align: center;
     position: relative;
     z-index: 1;
-    background: linear-gradient(-45deg, var(--accent-color-purple), var(--accent-color-orange), #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: hero-gradient-animation 15s ease infinite;
 }
 
 #hero h1 {
