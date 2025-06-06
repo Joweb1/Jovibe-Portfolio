@@ -227,6 +227,20 @@ nav a.active {
     text-align: center;
     position: relative;
     z-index: 1;
+    background: linear-gradient(-45deg, var(--accent-color-purple), var(--accent-color-orange), #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: hero-gradient-animation 15s ease infinite;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
 
 #hero h1 {
