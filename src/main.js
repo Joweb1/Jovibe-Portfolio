@@ -238,14 +238,25 @@ document.addEventListener('DOMContentLoaded', () => {
             button.classList.add('active');
 
             const filter = button.dataset.filter;
+            let delay = 0;
 
             projectCards.forEach(card => {
                 const categories = card.dataset.category.split(' ');
-                if (filter === 'all' || categories.includes(filter)) {
+                const shouldShow = filter === 'all' || categories.includes(filter);
+
+                if (shouldShow) {
+                    card.style.transitionDelay = `${delay}ms`;
                     card.classList.remove('hidden-card'); // Show the card
+                    delay += 100; // Increment delay for the next card
                 } else {
+                    card.style.transitionDelay = '0ms';
                     card.classList.add('hidden-card'); // Hide the card
                 }
+
+                // Reset transition delay after animation
+                card.addEventListener('transitionend', () => {
+                    card.style.transitionDelay = '0ms';
+                }, { once: true });
             });
         });
     });
