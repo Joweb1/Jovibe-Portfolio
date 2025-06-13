@@ -227,9 +227,6 @@ nav a.active {
     text-align: center;
     position: relative;
     z-index: 1;
-    background: linear-gradient(-45deg, var(--accent-color-purple), var(--accent-color-orange), #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: hero-gradient-animation 15s ease infinite;
 }
 
 #hero::before {
@@ -1352,15 +1349,7 @@ footer {
     transform: translateY(0);
 }
 
-/* Animated Background */
-body {
-    font-family: var(--font-family-main);
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    margin: 0;
-    padding: 0;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+
 
 
 
