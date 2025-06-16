@@ -1326,6 +1326,10 @@ footer {
         font-size: 0.9rem; /* Further adjust font size for mobile */
     }
 
+    #hero {
+        padding: 0 var(--spacing-medium);
+    }
+
     #cta h2 {
         font-size: 1.8rem;
     }
