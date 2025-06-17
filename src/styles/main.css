@@ -1065,6 +1065,19 @@ footer {
     margin-bottom: var(--spacing-small);
 }
 
+.project-hover-icon {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-medium);
+    opacity: 0.8;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-card:hover .project-hover-icon {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
 .author-title {
     font-size: 0.9rem;
     color: var(--secondary-color);
