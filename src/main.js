@@ -409,6 +409,81 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Blog pagination functionality
+    const blogPaginationCards = document.querySelectorAll('.blog-grid .blog-card');
+    const paginationContainer = document.querySelector('.blog-pagination');
+    const prevPageBtn = document.getElementById('prev-page');
+    const nextPageBtn = document.getElementById('next-page');
+    const pageNumbersContainer = document.querySelector('.page-numbers');
+
+    const postsPerPage = 3; // Number of blog posts per page
+    let currentPage = 1;
+
+    const displayBlogPage = (page) => {
+        const startIndex = (page - 1) * postsPerPage;
+        const endIndex = startIndex + postsPerPage;
+
+        blogPaginationCards.forEach((card, index) => {
+            if (index >= startIndex && index < endIndex) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Update active page number button
+        const pageNumberButtons = pageNumbersContainer.querySelectorAll('.page-number');
+        pageNumberButtons.forEach(button => {
+            if (parseInt(button.dataset.page) === page) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+
+        // Enable/disable prev/next buttons
+        prevPageBtn.disabled = page === 1;
+        nextPageBtn.disabled = page === Math.ceil(blogPaginationCards.length / postsPerPage);
+    };
+
+    const setupBlogPagination = () => {
+        const totalPages = Math.ceil(blogPaginationCards.length / postsPerPage);
+        pageNumbersContainer.innerHTML = ''; // Clear existing page numbers
+
+        for (let i = 1; i <= totalPages; i++) {
+            const button = document.createElement('button');
+            button.classList.add('pagination-button', 'page-number');
+            button.dataset.page = i;
+            button.textContent = i;
+            button.addEventListener('click', () => {
+                currentPage = i;
+                displayBlogPage(currentPage);
+            });
+            pageNumbersContainer.appendChild(button);
+        }
+
+        prevPageBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayBlogPage(currentPage);
+            }
+        });
+
+        nextPageBtn.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayBlogPage(currentPage);
+            }
+        });
+
+        displayBlogPage(currentPage); // Display initial page
+    };
+
+    // Call setupBlogPagination after content is loaded
+    // This needs to be called after loadContent('pages/home.html');
+    // For now, I'll add it directly here, assuming blog cards are present on initial load.
+    setupBlogPagination();
+
     // Nav section highlight on scroll
     const navLinksForScroll = document.querySelectorAll('.nav-links a');
     const sections = document.querySelectorAll('section'); // Assuming your sections have a <section> tag

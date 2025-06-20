@@ -634,6 +634,45 @@ nav a.active {
     transform: scale(1.05);
 }
 
+.blog-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-small);
+    margin-top: var(--spacing-large);
+}
+
+.pagination-button {
+    background-color: var(--glass-bg-color);
+    border: 1px solid var(--accent-color-purple);
+    color: var(--secondary-color);
+    padding: var(--spacing-small) var(--spacing-medium);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background-color: var(--accent-color-purple);
+    border-color: var(--accent-color-orange);
+}
+
+.pagination-button.active {
+    background-color: var(--accent-color-orange);
+    border-color: var(--accent-color-orange);
+    color: var(--text-on-accent);
+}
+
+.pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.page-numbers {
+    display: flex;
+    gap: var(--spacing-small);
+}
+
 .blog-image-container {
     position: relative;
     overflow: hidden;
