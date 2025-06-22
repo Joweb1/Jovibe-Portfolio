@@ -1390,6 +1390,14 @@ footer {
     #contact textarea {
         padding: var(--spacing-small);
     }
+
+    .newsletter-popup {
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        bottom: var(--spacing-medium);
+    }
 }
 
 /* Scroll Reveal Animations */
