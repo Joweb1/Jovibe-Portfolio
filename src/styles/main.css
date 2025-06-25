@@ -99,8 +99,7 @@ header {
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for shadow */
 }
 
-body.light-theme {
-    --primary-color: #f0f2f5; /* Light background */
+    --primary-color: #ffffff; /* Light background */
     --secondary-color: #333333; /* Dark text */
     --accent-color-purple: #6a1b9a; /* Darker purple */
     --accent-color-orange: #ff5722; /* Darker orange */
@@ -113,7 +112,6 @@ body.light-theme {
     --shadow-color: rgba(0, 0, 0, 0.2); /* Light theme shadow */
     --text-on-accent: #ffffff; /* White text on accent colors in light mode */
     --mobile-nav-bg-color: rgba(240, 242, 245, 0.95); /* Light theme mobile nav background */
-}
 
 :root {
     --primary-color: #1e1e2f;
@@ -621,6 +619,15 @@ nav a.active {
 .blog-card h3 {
     color: var(--accent-color-orange);
     margin-bottom: var(--spacing-small);
+}
+
+.blog-card p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: var(--spacing-medium); /* Ensure consistent spacing */
 }
 
 .blog-card img {
