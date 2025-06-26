@@ -1379,10 +1379,12 @@ footer {
 
     #hero h1 {
         font-size: 1.8rem; /* Further adjust font size for mobile */
+        line-height: 1.4;
     }
 
     #hero p {
         font-size: 0.9rem; /* Further adjust font size for mobile */
+        line-height: 1.6;
     }
 
     #hero {
