@@ -1404,6 +1404,11 @@ footer {
         padding: var(--spacing-small);
     }
 
+    .cta-button {
+        padding: var(--spacing-small);
+        font-size: 0.9rem;
+    }
+
     .newsletter-popup {
         width: 90%;
         left: 50%;
