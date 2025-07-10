@@ -117,6 +117,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Hide/show nav on scroll down/up
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+            // Scrolling down and past the header height
+            header.classList.add('nav-hidden');
+        } else {
+            // Scrolling up
+            header.classList.remove('nav-hidden');
+        }
+        lastScrollTop = scrollTop;
+    });
+
     // Scroll to top button
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
     
