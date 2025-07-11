@@ -374,9 +374,14 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const goToSlide = (index) => {
+            testimonialCards.forEach(card => card.classList.remove('active-slide')); // Remove active class from all cards
             testimonialGrid.scrollLeft = testimonialCards[index].offsetLeft;
             currentIndex = index;
             updateDots();
+            // Add active class to the new current card after a short delay to allow scroll to settle
+            setTimeout(() => {
+                testimonialCards[currentIndex].classList.add('active-slide');
+            }, 50); // Short delay
         };
 
         const nextSlide = () => {
@@ -394,6 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         createDots();
         startCarousel();
+        testimonialCards[currentIndex].classList.add('active-slide'); // Set initial active slide
 
         // Pause carousel on hover
         testimonialCarousel.addEventListener('mouseenter', stopCarousel);
