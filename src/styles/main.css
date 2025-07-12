@@ -623,6 +623,7 @@ nav a.active {
 .blog-card h3 {
     color: var(--accent-color-orange);
     margin-bottom: var(--spacing-small);
+    transition: transform 0.3s ease;
 }
 
 .blog-card p {
@@ -632,6 +633,12 @@ nav a.active {
     overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: var(--spacing-medium); /* Ensure consistent spacing */
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover h3,
+.blog-card:hover p {
+    transform: translateY(-5px);
 }
 
 .blog-card img {
