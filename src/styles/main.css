@@ -1108,11 +1108,17 @@ footer {
 .project-overlay h3 {
     color: var(--accent-color-orange);
     margin-bottom: var(--spacing-small);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .project-overlay p {
     color: var(--secondary-color);
     margin-bottom: var(--spacing-medium);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .project-overlay .tech-stack,
@@ -1120,6 +1126,38 @@ footer {
 .project-overlay .project-links {
     margin-top: var(--spacing-small);
     margin-bottom: var(--spacing-small);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-card:hover .project-overlay h3,
+.project-card:hover .project-overlay p,
+.project-card:hover .project-overlay .tech-stack,
+.project-card:hover .project-overlay .project-categories,
+.project-card:hover .project-overlay .project-links {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card:hover .project-overlay h3 {
+    transition-delay: 0.1s;
+}
+
+.project-card:hover .project-overlay p {
+    transition-delay: 0.2s;
+}
+
+.project-card:hover .project-overlay .tech-stack {
+    transition-delay: 0.3s;
+}
+
+.project-card:hover .project-overlay .project-categories {
+    transition-delay: 0.4s;
+}
+
+.project-card:hover .project-overlay .project-links {
+    transition-delay: 0.5s;
 }
 
 .project-hover-icon {
