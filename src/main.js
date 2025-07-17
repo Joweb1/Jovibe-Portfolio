@@ -328,7 +328,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     newsletterForm.style.display = 'none'; // Hide the form
                     newsletterConfirmation.classList.add('show'); // Show confirmation with animation
-                    newsletterPopup.classList.add('hidden'); // Hide the entire popup
+                    // Hide the entire popup after a delay
+                    setTimeout(() => {
+                        newsletterPopup.classList.add('hidden');
+                    }, 3000); // Hide after 3 seconds
                     localStorage.setItem('newsletterSubscribed', 'true'); // Set subscribed flag
                 } else {
                     alert('Failed to subscribe. Please try again. (Placeholder)');
