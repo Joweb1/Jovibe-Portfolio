@@ -353,6 +353,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentIndex = 0;
         let intervalId;
 
+        const prevArrow = testimonialCarousel.querySelector('.prev-arrow');
+        const nextArrow = testimonialCarousel.querySelector('.next-arrow');
+
         const createDots = () => {
             testimonialCards.forEach((_, index) => {
                 const dot = document.createElement('span');
@@ -392,6 +395,11 @@ document.addEventListener('DOMContentLoaded', () => {
             goToSlide(currentIndex);
         };
 
+        const prevSlide = () => {
+            currentIndex = (currentIndex - 1 + testimonialCards.length) % testimonialCards.length;
+            goToSlide(currentIndex);
+        };
+
         const startCarousel = () => {
             intervalId = setInterval(nextSlide, 5000); // Change slide every 5 seconds
         };
@@ -407,6 +415,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Pause carousel on hover
         testimonialCarousel.addEventListener('mouseenter', stopCarousel);
         testimonialCarousel.addEventListener('mouseleave', startCarousel);
+
+        // Arrow button event listeners
+        prevArrow.addEventListener('click', prevSlide);
+        nextArrow.addEventListener('click', nextSlide);
     }
 
     // Blog filter functionality
