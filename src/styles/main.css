@@ -819,6 +819,12 @@ nav a.active {
     padding: 0 var(--spacing-large) var(--spacing-medium) var(--spacing-large);
     color: var(--secondary-color);
     line-height: 1.6;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.faq-item[open] .faq-answer {
+    opacity: 1;
 }
 
 #newsletter {
