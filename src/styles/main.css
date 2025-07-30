@@ -1224,6 +1224,8 @@ footer {
 .tooltip-container {
     position: relative;
     display: inline-block; /* Allows tooltip to position relative to the button */
+    animation: fadeInUp 1s ease-out 1s forwards;
+    opacity: 0;
 }
 
 .tooltip-text {
