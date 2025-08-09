@@ -990,35 +990,19 @@ nav a.active {
     margin: 0 auto;
 }
 
-#contact input,
-#contact textarea {
-    padding: var(--spacing-medium);
-    border-radius: 5px;
-    border: 1px solid var(--accent-color-purple);
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--secondary-color);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
+    #contact input,
+    #contact textarea {
+        padding: var(--spacing-small);
+    }
 
-#contact input:focus,
-#contact textarea:focus {
-    outline: none;
-    border-color: var(--accent-color-orange);
-    box-shadow: 0 0 10px rgba(255, 127, 80, 0.2);
-}
+    .cta-button {
+        padding: var(--spacing-small);
+        font-size: 0.9rem;
+    }
 
-#contact button {
-    cursor: pointer;
-    border: none;
-    background-color: var(--accent-color-orange);
-    color: var(--secondary-color);
-    padding: var(--spacing-medium);
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-#contact button:hover {
-    background-color: var(--accent-color-purple);
+    .blog-card p {
+        font-size: 0.9rem;
+    }
 }
 
 #scrollToTopBtn {
