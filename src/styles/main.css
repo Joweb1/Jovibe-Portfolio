@@ -752,6 +752,18 @@ nav a.active {
     margin-bottom: var(--spacing-small);
 }
 
+.blog-card[data-category="css"] .blog-category {
+    color: var(--accent-color-purple);
+}
+
+.blog-card[data-category="javascript"] .blog-category {
+    color: var(--accent-color-orange);
+}
+
+.blog-card[data-category="design"] .blog-category {
+    color: #23a6d5; /* A blueish color for design */
+}
+
 .blog-date {
     font-size: 0.9rem;
 }
