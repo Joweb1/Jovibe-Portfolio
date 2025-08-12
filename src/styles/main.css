@@ -35,6 +35,15 @@ body.light-theme {
     --secondary-color: #333333; /* Dark text */
     --accent-color-purple: #6a1b9a; /* Darker purple */
     --accent-color-orange: #ff5722; /* Darker orange */
+    --header-bg-color: rgba(240, 242, 245, 0.8); /* Light theme header background */
+    --header-bg-scrolled-color: rgba(240, 242, 245, 0.95); /* Light theme scrolled heade */ 
+    --hero-overlay-color: rgba(240, 240, 240, 0.7); /* Light theme hero overlay */
+    --glass-bg-color: rgba(255, 255, 255, 0.6); /* Light theme glassmorphism background > */ 
+    --glass-border-color: rgba(0, 0, 0, 0.1); /* Light theme glassmorphism border */
+    --newsletter-bg-color: rgba(240, 242, 245, 0.9); /* Light theme newsletter backgroun> */ 
+    --shadow-color: rgba(0, 0, 0, 0.08); /* Light theme shadow */
+    --text-on-accent: #ffffff; /* White text on accent colors in light mode */
+    --mobile-nav-bg-color: rgba(240, 242, 245, 0.95); /* Light theme mobile 
 }
 
 /* Basic styles */
@@ -172,7 +181,7 @@ header.nav-hidden {
 
 header.scrolled {
     background-color: var(--header-bg-scrolled-color);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
