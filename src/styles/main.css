@@ -109,7 +109,7 @@ header.nav-hidden {
     --accent-color-orange: #ff5722; /* Darker orange */
     --header-bg-color: rgba(240, 242, 245, 0.8); /* Light theme header background */
     --header-bg-scrolled-color: rgba(240, 242, 245, 0.95); /* Light theme scrolled header background */
-    --hero-overlay-color: rgba(240, 240, 240, 0); /* Light theme hero overlay */
+    --hero-overlay-color: rgba(240, 240, 240, 0.7); /* Light theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.6); /* Light theme glassmorphism background */
     --glass-border-color: rgba(0, 0, 0, 0.1); /* Light theme glassmorphism border */
     --newsletter-bg-color: rgba(240, 242, 245, 0.9); /* Light theme newsletter background */
@@ -233,6 +233,17 @@ nav a.active {
     text-align: center;
     position: relative;
     z-index: 1;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--hero-overlay-color);
+    z-index: -1;
 }
 
 #hero::before {
