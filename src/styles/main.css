@@ -1507,6 +1507,10 @@ footer {
         right: auto;
         bottom: var(--spacing-medium);
     }
+
+    header {
+        padding: var(--spacing-small) var(--spacing-medium);
+    }
 }
 
 /* Scroll Reveal Animations */
