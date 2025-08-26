@@ -124,7 +124,7 @@ header.nav-hidden {
     --accent-color-orange: #ff7f50;
     --header-bg-color: rgba(30, 30, 47, 0.8); /* Dark theme header background */
     --header-bg-scrolled-color: rgba(30, 30, 47, 0.95); /* Dark theme scrolled header background */
-    --hero-overlay-color: rgba(0, 0, 0, 0.5); /* Dark theme hero overlay */
+    --hero-overlay-color: rgba(0, 0, 0, 0.7); /* Dark theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.1); /* Dark theme glassmorphism background */
     --glass-border-color: rgba(255, 255, 255, 0.2); /* Dark theme glassmorphism border */
     --newsletter-bg-color: rgba(30, 30, 47, 0.9); /* Dark theme newsletter background */
