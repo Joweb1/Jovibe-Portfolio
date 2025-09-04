@@ -116,6 +116,8 @@ if __name__ == "__main__":
     prompt = get_next_commit(current_index, "Jovibe Portfolio", first_run)
     
     if prompt:
+        print(f"DEBUG: current_index = {current_index}")
+        print(f"DEBUG: commit_number = {commits[current_index]['commit_number']}")
         print(prompt)
         # Save index of the next commit for next iteration
         with open(last_run_file, "w") as f:

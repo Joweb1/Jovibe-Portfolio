@@ -55,9 +55,9 @@ body.light-theme {
 
 /* Specific adjustments for elements with glassmorphism class */
 header.glassmorphism {
-    background-color: var(--header-bg-color);
+    background-color: var(--header-bg-color) !important;
     border-bottom: 1px solid var(--accent-color-purple);
-    backdrop-filter: blur(20px); /* Explicitly apply blur */
+    backdrop-filter: blur(20px) !important; /* Explicitly apply blur */
 }
 
 .newsletter-popup.glassmorphism {
