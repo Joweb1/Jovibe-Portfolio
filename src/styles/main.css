@@ -43,7 +43,26 @@ body.light-theme {
     --newsletter-bg-color: rgba(240, 242, 245, 0.9); /* Light theme newsletter backgroun> */ 
     --shadow-color: rgba(0, 0, 0, 0.08); /* Light theme shadow */
     --text-on-accent: #ffffff; /* White text on accent colors in light mode */
-    --mobile-nav-bg-color: rgba(240, 242, 245, 0.95); /* Light theme mobile 
+    --mobile-nav-bg-color: rgba(240, 242, 245, 0.95); /* Light theme mobile */
+}
+
+/* Glassmorphism effect */
+.glassmorphism {
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border-color);
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+/* Specific adjustments for elements with glassmorphism class */
+header.glassmorphism {
+    background-color: var(--header-bg-color);
+    border-bottom: 1px solid var(--accent-color-purple);
+}
+
+.newsletter-popup.glassmorphism {
+    background-color: var(--newsletter-bg-color);
+    border: 1px solid var(--glass-border-color);
+    box-shadow: 0 4px 20px var(--shadow-color);
 }
 
 /* Basic styles */
@@ -111,20 +130,6 @@ header {
 header.nav-hidden {
     transform: translateY(-100%);
 }
-
-    --primary-color: #f8f8f8; /* Light background */
-    --secondary-color: #333333; /* Dark text */
-    --accent-color-purple: #6a1b9a; /* Darker purple */
-    --accent-color-orange: #ff5722; /* Darker orange */
-    --header-bg-color: rgba(240, 242, 245, 0.8); /* Light theme header background */
-    --header-bg-scrolled-color: rgba(240, 242, 245, 0.95); /* Light theme scrolled header background */
-    --hero-overlay-color: rgba(240, 240, 240, 0.7); /* Light theme hero overlay */
-    --glass-bg-color: rgba(255, 255, 255, 0.6); /* Light theme glassmorphism background */
-    --glass-border-color: rgba(0, 0, 0, 0.1); /* Light theme glassmorphism border */
-    --newsletter-bg-color: rgba(240, 242, 245, 0.9); /* Light theme newsletter background */
-    --shadow-color: rgba(0, 0, 0, 0.08); /* Light theme shadow */
-    --text-on-accent: #ffffff; /* White text on accent colors in light mode */
-    --mobile-nav-bg-color: rgba(240, 242, 245, 0.95); /* Light theme mobile nav background */
 
 :root {
     --primary-color: #1e1e2f;

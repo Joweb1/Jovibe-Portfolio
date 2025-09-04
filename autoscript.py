@@ -106,8 +106,7 @@ if __name__ == "__main__":
     
     if os.path.exists(last_run_file):
         with open(last_run_file, "r") as f:
-            last_processed_index = int(f.read().strip()) # This is the index of the last processed commit
-            current_index = last_processed_index + 1
+            current_index = int(f.read().strip()) # This is the index of the next commit to process
         first_run = False
     else:
         current_index = 0
@@ -118,8 +117,8 @@ if __name__ == "__main__":
     
     if prompt:
         print(prompt)
-        # Save current index for next iteration
+        # Save index of the next commit for next iteration
         with open(last_run_file, "w") as f:
-            f.write(str(current_index)) # Save the index of the commit that was just processed
+            f.write(str(current_index + 1)) # Save the index of the next commit to be processed
     else:
         print("All commits completed!")
