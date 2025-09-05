@@ -61,10 +61,10 @@ header.glassmorphism {
 }
 
 .newsletter-popup.glassmorphism {
-    background-color: var(--newsletter-bg-color);
+    background-color: var(--newsletter-bg-color) !important;
     border: 1px solid var(--glass-border-color);
     box-shadow: 0 4px 20px var(--shadow-color);
-    backdrop-filter: blur(20px); /* Explicitly apply blur */
+    backdrop-filter: blur(20px) !important; /* Explicitly apply blur */
 }
 
 /* Basic styles */
