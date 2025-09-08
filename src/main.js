@@ -82,10 +82,18 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Custom smooth scroll function
-    const smoothScrollTo = (targetY, duration, easing = easeInOutQuad) => {
+    const smoothScrollTo = (targetY, initialDuration = 800, easing = easeInOutQuad) => {
         const startY = window.pageYOffset;
         const distance = targetY - startY;
         let startTime = null;
+
+        // Calculate dynamic duration based on distance
+        const pixelsPerSecond = 1000; // Adjust this value to control scroll speed
+        const minDuration = 300; // Minimum duration in ms
+        const maxDuration = 1200; // Maximum duration in ms
+        const dynamicDuration = Math.min(maxDuration, Math.max(minDuration, Math.abs(distance) / (pixelsPerSecond / 1000))); // Convert pixelsPerSecond to ms
+
+        const duration = dynamicDuration; // Use the dynamically calculated duration
 
         const animation = (currentTime) => {
             if (startTime === null) startTime = currentTime;
