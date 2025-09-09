@@ -336,6 +336,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     newsletterForm.style.display = 'none'; // Hide the form
                     newsletterConfirmation.classList.add('show'); // Show confirmation with animation
+
+                    // Fade out the confirmation message after a delay
+                    setTimeout(() => {
+                        newsletterConfirmation.classList.remove('show');
+                    }, 2500); // Start fading out after 2.5 seconds
+
                     // Hide the entire popup after a delay
                     setTimeout(() => {
                         newsletterPopup.classList.add('hidden');
