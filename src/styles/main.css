@@ -514,7 +514,6 @@ nav a.active {
 .project-card:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #testimonials {
