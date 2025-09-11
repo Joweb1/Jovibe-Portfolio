@@ -40,7 +40,7 @@ body.light-theme {
     --hero-overlay-color: rgba(240, 240, 240, 0.7); /* Light theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.3); /* Light theme glassmorphism background > */ 
     --glass-border-color: rgba(0, 0, 0, 0.1); /* Light theme glassmorphism border */
-    --newsletter-bg-color: rgba(240, 242, 245, 0.2); /* Light theme newsletter backgroun> */ 
+    --newsletter-bg-color: rgba(240, 242, 245, 0.1); /* Light theme newsletter backgroun> */ 
     --shadow-color: rgba(0, 0, 0, 0.08); /* Light theme shadow */
     --text-on-accent: #ffffff; /* White text on accent colors in light mode */
     --mobile-nav-bg-color: rgba(240, 242, 245, 0.95); /* Light theme mobile */
@@ -57,12 +57,14 @@ body.light-theme {
 header.glassmorphism {
     background-color: var(--header-bg-color);
     border-bottom: 1px solid var(--accent-color-purple);
+    backdrop-filter: blur(20px); /* Explicitly apply blur */
 }
 
 .newsletter-popup.glassmorphism {
     background-color: var(--newsletter-bg-color);
     border: 1px solid var(--glass-border-color);
     box-shadow: 0 4px 20px var(--shadow-color);
+    backdrop-filter: blur(20px); /* Explicitly apply blur */
 }
 
 /* Basic styles */
@@ -119,7 +121,6 @@ header {
     align-items: center;
     padding: var(--spacing-medium) var(--spacing-large);
     background-color: var(--header-bg-color); /* Use variable */
-    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--accent-color-purple);
     position: sticky; /* Make header sticky */
     top: 0;
@@ -141,7 +142,7 @@ header.nav-hidden {
     --hero-overlay-color: rgba(0, 0, 0, 0.7); /* Dark theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.05); /* Dark theme glassmorphism background */
     --glass-border-color: rgba(255, 255, 255, 0.2); /* Dark theme glassmorphism border */
-    --newsletter-bg-color: rgba(30, 30, 47, 0.2); /* Dark theme newsletter background */
+    --newsletter-bg-color: rgba(30, 30, 47, 0.1); /* Dark theme newsletter background */
     --shadow-color: rgba(0, 0, 0, 0.4); /* Dark theme shadow */
     --text-on-accent: #ffffff; /* White text on accent colors in dark mode */
     --mobile-nav-bg-color: rgba(30, 30, 47, 0.95); /* Dark theme mobile nav background */
@@ -884,7 +885,6 @@ nav a.active {
     bottom: var(--spacing-large); /* Bottom margin */
     right: var(--spacing-large); /* Right margin */
     width: 350px; /* Fixed width */
-    background-color: var(--primary-color);
     border-radius: 10px;
     box-shadow: 0 4px 20px var(--shadow-color); /* Use variable */
     z-index: 1000; /* Ensure it's above other content */
