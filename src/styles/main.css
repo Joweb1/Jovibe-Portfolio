@@ -48,7 +48,7 @@ body.light-theme {
 
 /* Glassmorphism effect */
 .glassmorphism {
-    backdrop-filter: blur(20px); /* Increased blur */
+    backdrop-filter: blur(30px); /* Increased blur */
     border: 2px solid var(--glass-border-color); /* Thicker border */
     box-shadow: 0 8px 12px var(--shadow-color); /* More prominent shadow */
 }
