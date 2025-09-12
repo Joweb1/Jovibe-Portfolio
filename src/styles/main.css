@@ -778,12 +778,14 @@ nav a.active {
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transform: translateY(10px); /* Initial state: slightly moved down */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Add transform to transition */
     color: var(--secondary-color);
 }
 
 .blog-card:hover .blog-overlay {
     opacity: 1;
+    transform: translateY(0); /* Final state: original position */
 }
 
 .blog-category {
