@@ -290,12 +290,10 @@ nav a.active {
     from {
         opacity: 0;
         transform: translateY(20px);
-        color: var(--accent-color-purple);
     }
     to {
         opacity: 1;
         transform: translateY(0);
-        color: var(--secondary-color);
     }
 }
 
