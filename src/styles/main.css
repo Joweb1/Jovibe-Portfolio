@@ -1463,6 +1463,10 @@ footer {
         padding: 0 var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
     }
 
+    .faq-question::after {
+        right: var(--spacing-medium); /* Adjust for smaller screens */
+    }
+
     #blog {
         padding: var(--spacing-medium);
     }
