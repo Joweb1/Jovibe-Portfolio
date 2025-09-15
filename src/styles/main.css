@@ -328,7 +328,7 @@ nav a.active {
     text-decoration: none;
     margin-top: var(--spacing-medium);
     transition: background-color 0.3s ease, transform 0.3s ease;
-    animation: pulse 3s infinite;
+    animation: pulse 3s infinite 0.5s;
 }
 
 .cta-button:hover {
