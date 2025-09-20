@@ -75,7 +75,7 @@ html {
 
 body {
     font-family: var(--font-family-main);
-    background-color: rgba(0,0,0,0.1); /* Temporarily make body background transparent for debugging glassmorphism */
+    background-color: var(--primary-color);
     color: var(--secondary-color);
     margin: 0;
     padding: 0;
