@@ -105,6 +105,22 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animation);
     };
 
+    // Custom smooth scroll function for horizontal scrolling
+    const smoothScrollLeftTo = (element, targetX, duration, easing = easeInOutQuad) => {
+        const startX = element.scrollLeft;
+        const distance = targetX - startX;
+        let startTime = null;
+
+        const animation = (currentTime) => {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const run = easing(timeElapsed, startX, distance, duration);
+            element.scrollLeft = run;
+            if (timeElapsed < duration) requestAnimationFrame(animation);
+        };
+        requestAnimationFrame(animation);
+    };
+
     // Toggle mobile menu
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
@@ -395,7 +411,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const goToSlide = (index) => {
             testimonialCards.forEach(card => card.classList.remove('active-slide')); // Remove active class from all cards
-            testimonialGrid.scrollLeft = testimonialCards[index].offsetLeft;
+            const targetX = testimonialCards[index].offsetLeft;
+            smoothScrollLeftTo(testimonialGrid, targetX, 800); // Use smooth scroll with 800ms duration
             currentIndex = index;
             updateDots();
             // Add active class to the new current card after a short delay to allow scroll to settle

@@ -55,16 +55,16 @@ body.light-theme {
 
 /* Specific adjustments for elements with glassmorphism class */
 header.glassmorphism {
-    background-color: var(--header-bg-color) !important;
+    background-color: var(--header-bg-color);
     border-bottom: 1px solid var(--accent-color-purple);
-    backdrop-filter: blur(20px) !important; /* Explicitly apply blur */
+    backdrop-filter: blur(20px); /* Explicitly apply blur */
 }
 
 .newsletter-popup.glassmorphism {
-    background-color: var(--newsletter-bg-color) !important;
+    background-color: var(--newsletter-bg-color);
     border: 1px solid var(--glass-border-color);
     box-shadow: 0 4px 20px var(--shadow-color);
-    backdrop-filter: blur(20px) !important; /* Explicitly apply blur */
+    backdrop-filter: blur(20px); /* Explicitly apply blur */
 }
 
 /* Basic styles */
@@ -120,7 +120,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-medium) var(--spacing-large);
-    background-color: var(--header-bg-color); /* Use variable */
+    background: var(--header-bg-color); /* Use variable */
+    backdrop-filter: blur(30px); /* Apply blur directly */
     border-bottom: 1px solid var(--accent-color-purple);
     position: sticky; /* Make header sticky */
     top: 0;
