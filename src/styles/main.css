@@ -260,6 +260,12 @@ nav a.active {
     height: 100%;
     background-color: var(--hero-overlay-color);
     z-index: -1;
+    opacity: 0; /* Initial state for fade-in */
+    transition: opacity 1s ease-out; /* Smooth transition for opacity */
+}
+
+#hero.active::before {
+    opacity: 1; /* Fade in when #hero is active */
 }
 
 
@@ -898,6 +904,8 @@ nav a.active {
     bottom: var(--spacing-large); /* Bottom margin */
     right: var(--spacing-large); /* Right margin */
     width: 350px; /* Fixed width */
+    background: var(--newsletter-bg-color); /* Apply background directly */
+    backdrop-filter: blur(30px); /* Apply blur directly */
     border-radius: 10px;
     box-shadow: 0 4px 20px var(--shadow-color); /* Use variable */
     z-index: 1000; /* Ensure it's above other content */
