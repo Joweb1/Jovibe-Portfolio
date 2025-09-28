@@ -40,7 +40,7 @@ body.light-theme {
     --hero-overlay-color: rgba(240, 240, 240, 0.7); /* Light theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.3); /* Light theme glassmorphism background > */ 
     --glass-border-color: rgba(0, 0, 0, 0.1); /* Light theme glassmorphism border */
-    --newsletter-bg-color: rgba(240, 242, 245, 0.1); /* Light theme newsletter backgroun> */ 
+    --newsletter-bg-color: rgba(240, 242, 245, 0.3); /* Light theme newsletter backgroun> */ 
     --shadow-color: rgba(0, 0, 0, 0.08); /* Light theme shadow */
     --text-on-accent: #ffffff; /* White text on accent colors in light mode */
     --mobile-nav-bg-color: rgba(240, 242, 245, 0.95); /* Light theme mobile */
@@ -691,7 +691,7 @@ nav a.active {
 }
 
 .blog-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02); /* Added scale(1.02) */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
 
