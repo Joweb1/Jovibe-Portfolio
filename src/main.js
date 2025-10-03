@@ -573,4 +573,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     window.addEventListener('scroll', activateNavLink);
+
+    // Parallax effect for hero background
+    const heroSection = document.getElementById('hero');
+    if (heroSection) {
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.pageYOffset;
+            // Adjust the multiplier for a more or less subtle effect
+            heroSection.style.backgroundPositionY = -scrollPosition * 0.3 + 'px';
+        });
+    }
 });

@@ -35,12 +35,12 @@ body.light-theme {
     --secondary-color: #333333; /* Dark text */
     --accent-color-purple: #6a1b9a; /* Darker purple */
     --accent-color-orange: #ff5722; /* Darker orange */
-    --header-bg-color: rgba(240, 242, 245, 0.1); /* Light theme header background */
+    --header-bg-color: rgba(240, 242, 245, 0.5); /* Light theme header background */
     --header-bg-scrolled-color: rgba(240, 242, 245, 0.95); /* Light theme scrolled heade */ 
     --hero-overlay-color: rgba(240, 240, 240, 0.7); /* Light theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.3); /* Light theme glassmorphism background > */ 
     --glass-border-color: rgba(0, 0, 0, 0.1); /* Light theme glassmorphism border */
-    --newsletter-bg-color: rgba(240, 242, 245, 0.3); /* Light theme newsletter backgroun> */ 
+    --newsletter-bg-color: rgba(240, 242, 245, 0.5); /* Light theme newsletter backgroun> */ 
     --shadow-color: rgba(0, 0, 0, 0.08); /* Light theme shadow */
     --text-on-accent: #ffffff; /* White text on accent colors in light mode */
     --mobile-nav-bg-color: rgba(240, 242, 245, 0.95); /* Light theme mobile */
@@ -121,6 +121,7 @@ header {
     align-items: center;
     padding: var(--spacing-medium) var(--spacing-large);
     background: var(--header-bg-color); /* Use variable */
+    -webkit-backdrop-filter: blur(30px); /* Fallback for Safari */
     backdrop-filter: blur(30px); /* Apply blur directly */
     border-bottom: 1px solid var(--accent-color-purple);
     position: sticky; /* Make header sticky */
@@ -138,12 +139,12 @@ header.nav-hidden {
     --secondary-color: #ffffff;
     --accent-color-purple: #9b59b6;
     --accent-color-orange: #ff7f50;
-    --header-bg-color: rgba(30, 30, 47, 0.1); /* Dark theme header background */
+    --header-bg-color: rgba(30, 30, 47, 0.5); /* Dark theme header background */
     --header-bg-scrolled-color: rgba(30, 30, 47, 0.95); /* Dark theme scrolled header background */
     --hero-overlay-color: rgba(0, 0, 0, 0.7); /* Dark theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.05); /* Dark theme glassmorphism background */
     --glass-border-color: rgba(255, 255, 255, 0.2); /* Dark theme glassmorphism border */
-    --newsletter-bg-color: rgba(30, 30, 47, 0.3); /* Dark theme newsletter background */
+    --newsletter-bg-color: rgba(30, 30, 47, 0.5); /* Dark theme newsletter background */
     --shadow-color: rgba(0, 0, 0, 0.4); /* Dark theme shadow */
     --text-on-accent: #ffffff; /* White text on accent colors in dark mode */
     --mobile-nav-bg-color: rgba(30, 30, 47, 0.95); /* Dark theme mobile nav background */
@@ -249,6 +250,10 @@ nav a.active {
     text-align: center;
     position: relative;
     z-index: 1;
+    background-image: url('../assets/hero-background.png'); /* Add background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* For parallax effect */
 }
 
 #hero::before {
@@ -906,6 +911,7 @@ nav a.active {
     right: var(--spacing-large); /* Right margin */
     width: 350px; /* Fixed width */
     background: var(--newsletter-bg-color); /* Apply background directly */
+    -webkit-backdrop-filter: blur(30px); /* Fallback for Safari */
     backdrop-filter: blur(30px); /* Apply blur directly */
     border-radius: 10px;
     box-shadow: 0 4px 20px var(--shadow-color); /* Use variable */
