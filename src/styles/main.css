@@ -53,12 +53,7 @@ body.light-theme {
     box-shadow: 0 8px 12px var(--shadow-color); /* More prominent shadow */
 }
 
-/* Specific adjustments for elements with glassmorphism class */
-header.glassmorphism {
-    background-color: var(--header-bg-color);
-    border-bottom: 1px solid var(--accent-color-purple);
-    backdrop-filter: blur(20px); /* Explicitly apply blur */
-}
+
 
 .newsletter-popup.glassmorphism {
     background-color: var(--newsletter-bg-color);
