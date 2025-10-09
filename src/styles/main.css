@@ -122,7 +122,8 @@ header {
     position: sticky; /* Make header sticky */
     top: 0;
     z-index: 100; /* Ensure header is above other content */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for shadow and transform */
+    will-change: backdrop-filter, background; /* Hint for performance */
+    transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for all relevant properties */
 }
 
 header.nav-hidden {
