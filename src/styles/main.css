@@ -36,7 +36,7 @@ body.light-theme {
     --accent-color-purple: #6a1b9a; /* Darker purple */
     --accent-color-orange: #ff5722; /* Darker orange */
     --header-bg-color: rgba(240, 242, 245, 0.5); /* Light theme header background */
-    --header-bg-scrolled-color: rgba(240, 242, 245, 0.95); /* Light theme scrolled heade */ 
+    --header-bg-scrolled-color: rgba(240, 242, 245, 0.5); /* Light theme scrolled heade */ 
     --hero-overlay-color: rgba(240, 240, 240, 0.7); /* Light theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.3); /* Light theme glassmorphism background > */ 
     --glass-border-color: rgba(0, 0, 0, 0.1); /* Light theme glassmorphism border */
@@ -136,7 +136,7 @@ header.nav-hidden {
     --accent-color-purple: #9b59b6;
     --accent-color-orange: #ff7f50;
     --header-bg-color: rgba(30, 30, 47, 0.5); /* Dark theme header background */
-    --header-bg-scrolled-color: rgba(30, 30, 47, 0.95); /* Dark theme scrolled header background */
+    --header-bg-scrolled-color: rgba(30, 30, 47, 0.5); /* Dark theme scrolled header background */
     --hero-overlay-color: rgba(0, 0, 0, 0.7); /* Dark theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.05); /* Dark theme glassmorphism background */
     --glass-border-color: rgba(255, 255, 255, 0.2); /* Dark theme glassmorphism border */
