@@ -136,7 +136,7 @@ header.nav-hidden {
     --accent-color-purple: #9b59b6;
     --accent-color-orange: #ff7f50;
     --header-bg-color: rgba(30, 30, 47, 0.5); /* Dark theme header background */
-    --header-bg-scrolled-color: rgba(30, 30, 47, 0.5); /* Dark theme scrolled header background */
+    --header-bg-scrolled-color: rgba(30, 30, 47, 0.2); /* Dark theme scrolled header background */
     --hero-overlay-color: rgba(0, 0, 0, 0.7); /* Dark theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.05); /* Dark theme glassmorphism background */
     --glass-border-color: rgba(255, 255, 255, 0.2); /* Dark theme glassmorphism border */
@@ -330,17 +330,18 @@ nav a.active {
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color-orange);
-    color: var(--text-on-accent); /* Use variable */
+    color: var(--secondary-color); /* Change to secondary-color for initial state */
     padding: var(--spacing-small) var(--spacing-medium);
     border-radius: 5px;
     text-decoration: none;
     margin-top: var(--spacing-medium);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease; /* Add color to transition */
     animation: pulse 3s infinite 0.5s;
 }
 
 .cta-button:hover {
     background-color: var(--accent-color-purple);
+    color: var(--text-on-accent); /* Change text color on hover */
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
 }
