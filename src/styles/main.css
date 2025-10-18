@@ -36,11 +36,11 @@ body.light-theme {
     --accent-color-purple: #6a1b9a; /* Darker purple */
     --accent-color-orange: #ff5722; /* Darker orange */
     --header-bg-color: rgba(240, 242, 245, 0.5); /* Light theme header background */
-    --header-bg-scrolled-color: rgba(240, 242, 245, 0.5); /* Light theme scrolled heade */ 
+    --header-bg-scrolled-color: rgba(240, 242, 245, 0.2); /* Light theme scrolled heade */ 
     --hero-overlay-color: rgba(240, 240, 240, 0.7); /* Light theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.3); /* Light theme glassmorphism background > */ 
     --glass-border-color: rgba(0, 0, 0, 0.1); /* Light theme glassmorphism border */
-    --newsletter-bg-color: rgba(240, 242, 245, 0.5); /* Light theme newsletter backgroun> */ 
+    --newsletter-bg-color: rgba(240, 242, 245, 0.2); /* Light theme newsletter backgroun> */ 
     --shadow-color: rgba(0, 0, 0, 0.08); /* Light theme shadow */
     --text-on-accent: #ffffff; /* White text on accent colors in light mode */
     --mobile-nav-bg-color: rgba(240, 242, 245, 0.95); /* Light theme mobile */
@@ -140,7 +140,7 @@ header.nav-hidden {
     --hero-overlay-color: rgba(0, 0, 0, 0.7); /* Dark theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.05); /* Dark theme glassmorphism background */
     --glass-border-color: rgba(255, 255, 255, 0.2); /* Dark theme glassmorphism border */
-    --newsletter-bg-color: rgba(30, 30, 47, 0.5); /* Dark theme newsletter background */
+    --newsletter-bg-color: rgba(30, 30, 47, 0.2); /* Dark theme newsletter background */
     --shadow-color: rgba(0, 0, 0, 0.4); /* Dark theme shadow */
     --text-on-accent: #ffffff; /* White text on accent colors in dark mode */
     --mobile-nav-bg-color: rgba(30, 30, 47, 0.95); /* Dark theme mobile nav background */
@@ -1536,11 +1536,13 @@ footer {
     #hero h1 {
         font-size: 1.8rem; /* Further adjust font size for mobile */
         line-height: 1.4;
+        margin-bottom: var(--spacing-small); /* Ensure consistent small spacing */
     }
 
     #hero p {
         font-size: 0.9rem; /* Further adjust font size for mobile */
         line-height: 1.6;
+        margin-bottom: var(--spacing-medium); /* Ensure consistent medium spacing */
     }
 
     #hero {
