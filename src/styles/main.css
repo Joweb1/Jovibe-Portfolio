@@ -727,6 +727,7 @@ nav a.active {
 
 .blog-card img:hover {
     transform: scale(1.05);
+    filter: brightness(1.1); /* Slightly brighten on hover */
 }
 
 .blog-pagination {
