@@ -116,8 +116,8 @@ header {
     align-items: center;
     padding: var(--spacing-medium) var(--spacing-large);
     background: var(--header-bg-color); /* Use variable */
-    -webkit-backdrop-filter: blur(30px); /* Fallback for Safari */
-    backdrop-filter: blur(30px); /* Apply blur directly */
+    -webkit-backdrop-filter: blur(20px); /* Fallback for Safari */
+    backdrop-filter: blur(20px); /* Apply blur directly */
     border-bottom: 1px solid var(--accent-color-purple);
     position: sticky; /* Make header sticky */
     top: 0;
@@ -909,8 +909,8 @@ nav a.active {
     right: var(--spacing-large); /* Right margin */
     width: 350px; /* Fixed width */
     background: var(--newsletter-bg-color); /* Apply background directly */
-    -webkit-backdrop-filter: blur(30px); /* Fallback for Safari */
-    backdrop-filter: blur(30px); /* Apply blur directly */
+    -webkit-backdrop-filter: blur(20px); /* Fallback for Safari */
+    backdrop-filter: blur(20px); /* Apply blur directly */
     border-radius: 10px;
     box-shadow: 0 4px 20px var(--shadow-color); /* Use variable */
     z-index: 1000; /* Ensure it's above other content */
