@@ -884,12 +884,15 @@ nav a.active {
     padding: 0 var(--spacing-large) var(--spacing-medium) var(--spacing-large);
     color: var(--secondary-color);
     line-height: 1.6;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    opacity: 0; /* Keep opacity for fade effect */
+    max-height: 0; /* Initial state for collapse */
+    overflow: hidden; /* Hide overflowing content */
+    transition: opacity 0.3s ease, max-height 0.5s ease-out; /* Animate opacity and max-height */
 }
 
 .faq-item[open] .faq-answer {
     opacity: 1;
+    max-height: 500px; /* A large enough value to show content */
 }
 
 #newsletter {
