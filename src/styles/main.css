@@ -136,7 +136,7 @@ header.nav-hidden {
     --accent-color-purple: #9b59b6;
     --accent-color-orange: #ff7f50;
     --header-bg-color: rgba(30, 30, 47, 0.5); /* Dark theme header background */
-    --header-bg-scrolled-color: rgba(30, 30, 47, 0.2); /* Dark theme scrolled header background */
+    --header-bg-scrolled-color: rgba(30, 30, 47, 0.1); /* Dark theme scrolled header background */
     --hero-overlay-color: rgba(0, 0, 0, 0.7); /* Dark theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.05); /* Dark theme glassmorphism background */
     --glass-border-color: rgba(255, 255, 255, 0.2); /* Dark theme glassmorphism border */
@@ -186,7 +186,9 @@ header.nav-hidden {
 header.scrolled {
     background-color: var(--header-bg-scrolled-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    -webkit-backdrop-filter: blur(20px); /* Apply blur to scrolled state */
+    backdrop-filter: blur(20px); /* Apply blur to scrolled state */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 nav ul {
@@ -1058,6 +1060,23 @@ nav a.active {
     margin: 0 auto;
 }
 
+#contact input,
+#contact textarea {
+    padding: var(--spacing-medium); /* Default padding */
+    border-radius: 5px;
+    border: 1px solid var(--accent-color-purple);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--secondary-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    outline: none;
+    border-color: var(--accent-color-orange);
+    box-shadow: 0 0 10px rgba(255, 127, 80, 0.2);
+}
+
     #contact input,
     #contact textarea {
         padding: var(--spacing-small);
@@ -1555,11 +1574,6 @@ footer {
 
     #cta h2 {
         font-size: 1.8rem;
-    }
-
-    #contact input,
-    #contact textarea {
-        padding: var(--spacing-small);
     }
 
     .cta-button {
