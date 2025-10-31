@@ -36,7 +36,7 @@ body.light-theme {
     --accent-color-purple: #6a1b9a; /* Darker purple */
     --accent-color-orange: #ff5722; /* Darker orange */
     --header-bg-color: rgba(240, 242, 245, 0.5); /* Light theme header background */
-    --header-bg-scrolled-color: rgba(240, 242, 245, 0.2); /* Light theme scrolled heade */ 
+    --header-bg-scrolled-color: rgba(240, 242, 245, 0.1); /* Light theme scrolled heade */ 
     --hero-overlay-color: rgba(240, 240, 240, 0.7); /* Light theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.3); /* Light theme glassmorphism background > */ 
     --glass-border-color: rgba(0, 0, 0, 0.1); /* Light theme glassmorphism border */
