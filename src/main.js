@@ -173,13 +173,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Contact form submission placeholder
     const contactForm = document.querySelector('#contact form');
-    if (contactForm) {
+    const contactSuccessMessage = document.getElementById('contact-success-message');
+    const contactErrorMessage = document.getElementById('contact-error-message');
+
+    // Function to show a message
+    const showMessage = (messageElement) => {
+        messageElement.classList.add('show');
+        // Automatically hide after 5 seconds
+        setTimeout(() => {
+            messageElement.classList.remove('show');
+        }, 5000);
+    };
+
+    if (contactForm && contactSuccessMessage && contactErrorMessage) {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(contactForm);
             const formProps = Object.fromEntries(formData);
 
+            // Hide any previously shown messages
+            contactSuccessMessage.classList.remove('show');
+            contactErrorMessage.classList.remove('show');
+
             console.log('Form submitted:', formProps);
+
+            // Basic email validation (example, more robust validation needed)
+            const emailInput = contactForm.querySelector('input[type="email"]');
+            if (!emailInput || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+                contactErrorMessage.textContent = 'Please enter a valid email address.';
+                showMessage(contactErrorMessage);
+                return; // Stop form submission
+            }
+
 
             // Simulate a backend call
             try {
@@ -193,14 +218,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    alert('Message sent successfully! (Placeholder)');
+                    contactSuccessMessage.textContent = 'Message sent successfully!';
+                    showMessage(contactSuccessMessage);
                     contactForm.reset();
                 } else {
-                    alert('Failed to send message. Please try again. (Placeholder)');
+                    contactErrorMessage.textContent = 'Failed to send message. Please try again.';
+                    showMessage(contactErrorMessage);
                 }
             } catch (error) {
                 console.error('Error submitting form:', error);
-                alert('An error occurred. Please try again later. (Placeholder)');
+                contactErrorMessage.textContent = 'An error occurred. Please try again later.';
+                showMessage(contactErrorMessage);
             }
         });
     }
