@@ -893,14 +893,13 @@ nav a.active {
 }
 
 #newsletter {
-    padding: var(--spacing-medium); /* Adjusted padding */
+    padding: var(--spacing-large); /* Internal spacing */
+    width: 100%; /* Take full width of parent */
     text-align: center;
-    background-color: var(--newsletter-bg-color); /* Use variable */
-    border-top: 1px solid var(--accent-color-purple);
-    border-bottom: 1px solid var(--accent-color-purple);
-    transition: background-color 0.3s ease;
-    border-radius: 10px; /* Added border-radius */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Added shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-medium); /* Space between elements inside section */
 }
 
 .newsletter-popup {
@@ -961,9 +960,12 @@ nav a.active {
 .newsletter-form {
     display: flex;
     justify-content: center;
-    gap: var(--spacing-medium);
+    align-items: center; /* Align items vertically */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: var(--spacing-small); /* Smaller gap for wrapped items */
     max-width: 600px;
     margin: 0 auto;
+    width: 100%; /* Ensure it takes full width */
 }
 
 .newsletter-form input[type="email"] {
@@ -974,6 +976,8 @@ nav a.active {
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--secondary-color);
     transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    width: 100%; /* Ensure it takes full width when wrapped */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .newsletter-form input[type="email"]:hover {
