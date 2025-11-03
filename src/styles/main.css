@@ -994,6 +994,8 @@ nav a.active {
 .newsletter-form .cta-button {
     margin-top: 0; /* Override default cta-button margin */
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Ensure it takes full width when wrapped */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .newsletter-form .cta-button:hover {
@@ -1152,7 +1154,7 @@ footer {
 
 .social-links .social-icon-link:hover {
     color: var(--accent-color-orange);
-    transform: translateY(-3px); /* Subtle hover effect */
+    transform: translateY(-3px) scale(1.1); /* Add scale effect */
 }
 
 .social-links .social-icon-link svg {
