@@ -1596,6 +1596,15 @@ footer {
     header {
         padding: var(--spacing-small) var(--spacing-medium);
     }
+
+    footer {
+        padding: var(--spacing-medium) 0; /* Adjust padding for smaller screens */
+    }
+
+    .social-links {
+        flex-direction: column; /* Stack social links vertically */
+        gap: var(--spacing-small); /* Adjust gap for stacked items */
+    }
 }
 
 /* Scroll Reveal Animations */
