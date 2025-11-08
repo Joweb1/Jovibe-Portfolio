@@ -602,13 +602,22 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.addEventListener('scroll', activateNavLink);
 
-    // Parallax effect for hero background
+    // Parallax effect for hero background and text
     const heroSection = document.getElementById('hero');
-    if (heroSection) {
+    const heroH1 = document.querySelector('#hero h1');
+    const heroP = document.querySelector('#hero p');
+    const heroCtaContainer = document.querySelector('#hero .tooltip-container');
+
+    if (heroSection && heroH1 && heroP && heroCtaContainer) {
         window.addEventListener('scroll', () => {
             const scrollPosition = window.pageYOffset;
             // Adjust the multiplier for a more or less subtle effect
             heroSection.style.backgroundPositionY = -scrollPosition * 0.3 + 'px';
+
+            // Apply parallax to hero text elements
+            heroH1.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+            heroP.style.transform = `translateY(${scrollPosition * 0.15}px)`;
+            heroCtaContainer.style.transform = `translateY(${scrollPosition * 0.1}px)`;
         });
     }
 });

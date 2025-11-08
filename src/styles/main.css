@@ -904,7 +904,7 @@ nav a.active {
 
 .newsletter-popup {
     position: fixed;
-    bottom: var(--spacing-large); /* Bottom margin */
+    bottom: var(--spacing-medium); /* Reduced bottom margin */
     right: auto; /* Remove fixed right positioning */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
