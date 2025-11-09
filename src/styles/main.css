@@ -932,13 +932,28 @@ nav a.active {
 }
 
 .close-newsletter {
-    background: none;
+    position: absolute; /* Position absolutely within the popup */
+    top: var(--spacing-small); /* Distance from top edge */
+    right: var(--spacing-small); /* Distance from right edge */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
     border: none;
+    border-radius: 50%; /* Make it circular */
+    width: 30px; /* Fixed width */
+    height: 30px; /* Fixed height */
+    display: flex; /* Use flexbox for centering content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     color: var(--secondary-color);
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Slightly smaller icon */
     cursor: pointer;
-    padding: var(--spacing-small);
-    transition: color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    z-index: 1001; /* Ensure it's above other popup content */
+}
+
+.close-newsletter:hover {
+    background-color: var(--accent-color-orange); /* Highlight on hover */
+    color: var(--text-on-accent);
+    transform: scale(1.1); /* Slight scale effect on hover */
 }
 
 .close-newsletter:hover {
