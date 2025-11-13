@@ -909,7 +909,7 @@ nav a.active {
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     max-width: 350px; /* Max width */
-    width: 90%; /* Responsive width */
+    width: 95%; /* Responsive width, reduced side margins */
     background: var(--newsletter-bg-color); /* Apply background directly */
     -webkit-backdrop-filter: blur(20px); /* Fallback for Safari */
     backdrop-filter: blur(20px); /* Apply blur directly */
