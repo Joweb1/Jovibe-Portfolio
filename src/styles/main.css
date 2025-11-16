@@ -890,6 +890,7 @@ nav a.active {
 .faq-item[open] .faq-answer {
     opacity: 1;
     max-height: 500px; /* A large enough value to show content */
+    transition-delay: 0.1s; /* Small delay for appearing effect */
 }
 
 #newsletter {
