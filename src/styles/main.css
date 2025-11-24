@@ -243,10 +243,10 @@ nav a.active {
     text-align: center;
     position: relative;
     z-index: 1;
-    background-image: url('../assets/hero-background.png'); /* Add background image */
-    background-size: cover;
+    background: linear-gradient(-45deg, var(--accent-color-purple), var(--accent-color-orange), var(--accent-color-purple), var(--accent-color-orange));
+    background-size: 400% 400%;
     background-position: center;
-    background-attachment: fixed; /* For parallax effect */
+    animation: background-gradient-animation 15s ease infinite; /* Apply animation */
 }
 
 #hero::before {
@@ -319,6 +319,12 @@ nav a.active {
 
 /* Add this keyframe animation */
 @keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes background-gradient-animation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
