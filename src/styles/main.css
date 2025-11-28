@@ -336,6 +336,7 @@ nav a.active {
     color: var(--secondary-color); /* Change to secondary-color for initial state */
     padding: var(--spacing-small) var(--spacing-medium);
     border-radius: 5px;
+    border: none;
     text-decoration: none;
     margin-top: var(--spacing-medium);
     transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease; /* Add color to transition */
