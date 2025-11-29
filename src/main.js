@@ -3,6 +3,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
+    // Function to initialize scroll reveal animations
+    const initializeScrollReveal = () => {
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% of element visible to trigger
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, delay);
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => observer.observe(el));
+    };
+
     // Function to load content
     const loadContent = async (url) => {
         try {
@@ -14,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
             app.innerHTML = content;
             // Re-apply smooth scrolling after content is loaded
             applySmoothScrolling();
+            // Initialize scroll reveal animations after content is loaded
+            initializeScrollReveal();
         } catch (error) {
             console.error('Error loading content:', error);
             app.innerHTML = '<p>Error loading page.</p>';
@@ -158,29 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // Scroll reveal animations
-    const revealElements = document.querySelectorAll('.reveal');
-
-    const observerOptions = {
-        root: null, // viewport
-        rootMargin: '0px',
-        threshold: 0.1 // 10% of element visible to trigger
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const delay = entry.target.dataset.delay || 0;
-                setTimeout(() => {
-                    entry.target.classList.add('active');
-                }, delay);
-                observer.unobserve(entry.target); // Stop observing once animated
-            }
-        });
-    }, observerOptions);
-
-    revealElements.forEach(el => observer.observe(el));
 
     // Hide loading spinner once content is loaded
     const loadingSpinner = document.getElementById('loading-spinner');
