@@ -10,7 +10,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const content = await response.text();
+            let content = await response.text();
+
+            // Process <include> tags
+            const includeRegex = /<include\s+src="([^"]+)"><\/include>/g;
+            const includes = [...content.matchAll(includeRegex)];
+
+            for (const match of includes) {
+                const includePath = match[1];
+                const includeResponse = await fetch(includePath);
+                if (!includeResponse.ok) {
+                    console.warn(`Could not load include: ${includePath}`);
+                    content = content.replace(match[0], `<!-- Failed to load ${includePath} -->`);
+                    continue;
+                }
+                const includeContent = await includeResponse.text();
+                content = content.replace(match[0], includeContent);
+            }
+
             app.innerHTML = content;
             // Re-apply smooth scrolling after content is loaded
             applySmoothScrolling();
