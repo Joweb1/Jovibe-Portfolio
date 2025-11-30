@@ -110,6 +110,8 @@ body.light-theme {
     --glass-border-color: rgba(0, 0, 0, 0.1); /* Light theme glassmorphism border */
     --newsletter-bg-color: rgba(240, 242, 245, 0.9); /* Light theme newsletter background */
     --shadow-color: rgba(0, 0, 0, 0.2); /* Light theme shadow */
+    --text-on-accent: #ffffff; /* White text on accent colors in light mode */
+    --mobile-nav-bg-color: rgba(240, 242, 245, 0.95); /* Light theme mobile nav background */
 }
 
 :root {
@@ -123,6 +125,8 @@ body.light-theme {
     --glass-border-color: rgba(255, 255, 255, 0.2); /* Dark theme glassmorphism border */
     --newsletter-bg-color: rgba(30, 30, 47, 0.9); /* Dark theme newsletter background */
     --shadow-color: rgba(0, 0, 0, 0.4); /* Dark theme shadow */
+    --text-on-accent: #ffffff; /* White text on accent colors in dark mode */
+    --mobile-nav-bg-color: rgba(30, 30, 47, 0.95); /* Dark theme mobile nav background */
 
     --font-family-main: 'Roboto', sans-serif;
 
@@ -257,7 +261,7 @@ nav a:hover::after {
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color-orange);
-    color: var(--secondary-color);
+    color: var(--text-on-accent); /* Use variable */
     padding: var(--spacing-small) var(--spacing-medium);
     border-radius: 5px;
     text-decoration: none;
@@ -385,7 +389,7 @@ nav a:hover::after {
 .filter-button.active {
     background-color: var(--accent-color-orange);
     border-color: var(--accent-color-orange);
-    color: var(--primary-color); /* Dark text for contrast */
+    color: var(--text-on-accent); /* Use variable */
 }
 
 .portfolio-grid {
@@ -1061,7 +1065,7 @@ footer {
         flex-direction: column;
         width: 100%;
         text-align: center;
-        background-color: rgba(30, 30, 47, 0.95);
+        background-color: var(--mobile-nav-bg-color); /* Use variable */
         position: absolute;
         top: 100%;
         left: 0;
