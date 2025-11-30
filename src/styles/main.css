@@ -246,7 +246,7 @@ nav a.active {
     background: linear-gradient(-45deg, var(--accent-color-purple), var(--accent-color-orange), var(--accent-color-purple), var(--accent-color-orange));
     background-size: 400% 400%;
     background-position: center;
-    animation: background-gradient-animation 15s ease infinite; /* Apply animation */
+    animation: background-gradient-animation 15s ease infinite, background-zoom 20s ease-in-out infinite alternate; /* Apply both animations */
 }
 
 #hero::before {
@@ -328,6 +328,11 @@ nav a.active {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+
+@keyframes background-zoom {
+    0% { background-size: 400% 400%; }
+    100% { background-size: 420% 420%; } /* Slightly larger for zoom effect */
 }
 
 .cta-button {
