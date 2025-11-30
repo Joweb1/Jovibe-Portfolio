@@ -90,13 +90,45 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-medium) var(--spacing-large);
-    background-color: rgba(30, 30, 47, 0.8);
+    background-color: var(--header-bg-color); /* Use variable */
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--accent-color-purple);
     position: sticky; /* Make header sticky */
     top: 0;
     z-index: 100; /* Ensure header is above other content */
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for shadow */
+}
+
+body.light-theme {
+    --primary-color: #f0f2f5; /* Light background */
+    --secondary-color: #333333; /* Dark text */
+    --accent-color-purple: #6a1b9a; /* Darker purple */
+    --accent-color-orange: #ff5722; /* Darker orange */
+    --header-bg-color: rgba(240, 242, 245, 0.8); /* Light theme header background */
+    --hero-overlay-color: rgba(255, 255, 255, 0.5); /* Light theme hero overlay */
+    --glass-bg-color: rgba(255, 255, 255, 0.6); /* Light theme glassmorphism background */
+    --glass-border-color: rgba(0, 0, 0, 0.1); /* Light theme glassmorphism border */
+    --newsletter-bg-color: rgba(240, 242, 245, 0.9); /* Light theme newsletter background */
+    --shadow-color: rgba(0, 0, 0, 0.2); /* Light theme shadow */
+}
+
+:root {
+    --primary-color: #1e1e2f;
+    --secondary-color: #ffffff;
+    --accent-color-purple: #9b59b6;
+    --accent-color-orange: #ff7f50;
+    --header-bg-color: rgba(30, 30, 47, 0.8); /* Dark theme header background */
+    --hero-overlay-color: rgba(0, 0, 0, 0.5); /* Dark theme hero overlay */
+    --glass-bg-color: rgba(255, 255, 255, 0.1); /* Dark theme glassmorphism background */
+    --glass-border-color: rgba(255, 255, 255, 0.2); /* Dark theme glassmorphism border */
+    --newsletter-bg-color: rgba(30, 30, 47, 0.9); /* Dark theme newsletter background */
+    --shadow-color: rgba(0, 0, 0, 0.4); /* Dark theme shadow */
+
+    --font-family-main: 'Roboto', sans-serif;
+
+    --spacing-small: 8px;
+    --spacing-medium: 16px;
+    --spacing-large: 32px;
 }
 
 #progress-bar-container {
@@ -192,7 +224,7 @@ nav a:hover::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+    background-color: var(--hero-overlay-color); /* Use variable */
     z-index: -1; /* Place overlay behind content */
 }
 
@@ -256,11 +288,11 @@ nav a:hover::after {
     display: flex;
     align-items: center;
     gap: var(--spacing-large);
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg-color); /* Use variable */
     backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: var(--spacing-large);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-border-color); /* Use variable */
     max-width: 900px; /* Limit width */
     margin: 0 auto; /* Center the content */
 }
@@ -290,11 +322,11 @@ nav a:hover::after {
 }
 
 .service-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg-color); /* Use variable */
     backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: var(--spacing-large);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-border-color); /* Use variable */
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -363,11 +395,11 @@ nav a:hover::after {
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg-color); /* Use variable */
     backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: var(--spacing-medium);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-border-color); /* Use variable */
     text-align: center;
     transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Subtle default shadow */
@@ -443,11 +475,11 @@ nav a:hover::after {
 }
 
 .testimonial-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg-color); /* Use variable */
     backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: var(--spacing-large);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-border-color); /* Use variable */
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -538,11 +570,11 @@ nav a:hover::after {
 }
 
 .blog-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg-color); /* Use variable */
     backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: var(--spacing-large);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-border-color); /* Use variable */
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -587,10 +619,10 @@ nav a:hover::after {
 }
 
 .faq-item {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg-color); /* Use variable */
     backdrop-filter: blur(10px);
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-border-color); /* Use variable */
     margin-bottom: var(--spacing-medium);
     overflow: hidden;
     transition: all 0.3s ease;
@@ -638,7 +670,7 @@ nav a:hover::after {
 #newsletter {
     padding: var(--spacing-medium); /* Adjusted padding */
     text-align: center;
-    background-color: rgba(30, 30, 47, 0.9); /* Slightly transparent dark background */
+    background-color: var(--newsletter-bg-color); /* Use variable */
     border-top: 1px solid var(--accent-color-purple);
     border-bottom: 1px solid var(--accent-color-purple);
     transition: background-color 0.3s ease;
@@ -653,7 +685,7 @@ nav a:hover::after {
     width: 350px; /* Fixed width */
     background-color: var(--primary-color);
     border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 20px var(--shadow-color); /* Use variable */
     z-index: 1000; /* Ensure it's above other content */
     transform: translateY(0); /* Initial state for animation */
     transition: transform 0.5s ease-out, opacity 0.5s ease-out;
@@ -849,7 +881,7 @@ nav a:hover::after {
 footer {
     text-align: center;
     padding: var(--spacing-large) 0; /* Adjusted padding */
-    background-color: rgba(30, 30, 47, 0.8);
+    background-color: var(--header-bg-color); /* Use variable */
     border-top: 1px solid var(--accent-color-purple);
     transition: background-color 0.3s ease;
 }
