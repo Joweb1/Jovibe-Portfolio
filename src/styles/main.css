@@ -856,18 +856,30 @@ footer {
 
 .social-links {
     margin-bottom: var(--spacing-medium);
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    gap: var(--spacing-medium); /* Space between icons */
 }
 
-.social-links a {
-    color: var(--secondary-color);
+.social-links .social-icon-link {
+    color: var(--secondary-color); /* Inherit color from theme */
     text-decoration: none;
-    margin: 0 var(--spacing-small);
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex; /* Use flex to center SVG within the link */
+    justify-content: center;
+    align-items: center;
 }
 
-.social-links a:hover {
+.social-links .social-icon-link:hover {
     color: var(--accent-color-orange);
-    text-decoration: underline;
+    transform: translateY(-3px); /* Subtle hover effect */
+}
+
+.social-links .social-icon-link svg {
+    fill: currentColor; /* Make SVG fill color inherit from parent 'a' tag */
+    width: 32px; /* Ensure consistent size */
+    height: 32px; /* Ensure consistent size */
 }
 
 .tech-stack {
