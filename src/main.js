@@ -250,11 +250,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Newsletter form submission placeholder
+    // Newsletter functionality
+    const newsletterPopup = document.getElementById('newsletter-popup');
+    const closeNewsletterBtn = document.querySelector('.close-newsletter');
     const newsletterForm = document.querySelector('.newsletter-form');
     const newsletterConfirmation = document.getElementById('newsletter-confirmation');
 
-    if (newsletterForm && newsletterConfirmation) {
+    // Check localStorage for newsletter status on load
+    if (newsletterPopup) {
+        const newsletterClosed = localStorage.getItem('newsletterClosed');
+        const newsletterSubscribed = localStorage.getItem('newsletterSubscribed');
+
+        if (newsletterClosed === 'true' || newsletterSubscribed === 'true') {
+            newsletterPopup.classList.add('hidden');
+        }
+    }
+
+    // Close newsletter button functionality
+    if (closeNewsletterBtn && newsletterPopup) {
+        closeNewsletterBtn.addEventListener('click', () => {
+            newsletterPopup.classList.add('hidden');
+            localStorage.setItem('newsletterClosed', 'true');
+        });
+    }
+
+    if (newsletterForm && newsletterConfirmation && newsletterPopup) {
         newsletterForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(newsletterForm);
@@ -282,6 +302,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     newsletterForm.style.display = 'none'; // Hide the form
                     newsletterConfirmation.classList.add('show'); // Show confirmation with animation
+                    newsletterPopup.classList.add('hidden'); // Hide the entire popup
+                    localStorage.setItem('newsletterSubscribed', 'true'); // Set subscribed flag
                 } else {
                     alert('Failed to subscribe. Please try again. (Placeholder)');
                 }

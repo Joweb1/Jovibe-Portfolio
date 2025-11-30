@@ -636,16 +636,52 @@ nav a:hover::after {
 }
 
 #newsletter {
-    padding: var(--spacing-medium) 0; /* Adjusted padding for sticky bar */
+    padding: var(--spacing-medium); /* Adjusted padding */
     text-align: center;
     background-color: rgba(30, 30, 47, 0.9); /* Slightly transparent dark background */
     border-top: 1px solid var(--accent-color-purple);
     border-bottom: 1px solid var(--accent-color-purple);
-    position: sticky; /* Make newsletter sticky */
-    bottom: 0; /* Stick to the bottom */
-    width: 100%; /* Full width */
-    z-index: 90; /* Ensure it's above most content but below header/progress */
     transition: background-color 0.3s ease;
+    border-radius: 10px; /* Added border-radius */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Added shadow */
+}
+
+.newsletter-popup {
+    position: fixed;
+    bottom: var(--spacing-large); /* Bottom margin */
+    right: var(--spacing-large); /* Right margin */
+    width: 350px; /* Fixed width */
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    z-index: 1000; /* Ensure it's above other content */
+    transform: translateY(0); /* Initial state for animation */
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align close button to the right */
+    padding: var(--spacing-medium);
+}
+
+.newsletter-popup.hidden {
+    transform: translateY(100%); /* Animate out */
+    opacity: 0;
+    pointer-events: none; /* Disable interactions when hidden */
+}
+
+.close-newsletter {
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: var(--spacing-small);
+    transition: color 0.3s ease;
+}
+
+.close-newsletter:hover {
+    color: var(--accent-color-orange);
 }
 
 #newsletter h2 {
@@ -831,6 +867,7 @@ footer {
 
 .social-links a:hover {
     color: var(--accent-color-orange);
+    text-decoration: underline;
 }
 
 .tech-stack {
@@ -997,42 +1034,62 @@ footer {
     }
 
     .menu-toggle {
-        display: block; /* Show toggle button */
+        display: flex; /* Use flexbox for centering */
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
         background: none;
         border: none;
         cursor: pointer;
         padding: 10px;
         position: relative;
         z-index: 1001;
+        width: 40px; /* Define a fixed width for the button */
+        height: 40px; /* Define a fixed height for the button */
     }
 
     .hamburger {
         display: block;
         width: 25px;
         height: 3px;
-        background-color: var(--secondary-color);
-        position: relative;
-        transition: background-color 0.3s ease;
+        background-color: transparent; /* Hide the middle line */
+        position: absolute; /* Position relative to menu-toggle */
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Adjust for its own size */
     }
 
-    .hamburger::after { /* Only using ::after for the second line */
+    .hamburger::before,
+    .hamburger::after {
         content: '';
         display: block;
         width: 25px;
         height: 3px;
         background-color: var(--secondary-color);
         position: absolute;
-        transition: transform 0.3s ease;
-        top: 8px; /* Position the second line below the main line */
+        transition: transform 0.3s ease, top 0.3s ease;
+    }
+
+    .hamburger::before {
+        top: -6px; /* Position above the main bar */
+    }
+
+    .hamburger::after {
+        top: 6px; /* Position below the main bar */
     }
 
     .menu-toggle.active .hamburger {
-        background-color: transparent; /* Hide the middle line */
+        background-color: transparent; /* Keep the middle line hidden */
+    }
+
+    .menu-toggle.active .hamburger::before {
+        top: 0; /* Move to center */
+        transform: rotate(-45deg); /* Rotate to form part of the 'X' */
     }
 
     .menu-toggle.active .hamburger::after {
-        top: 0; /* Move the bottom line to the center */
-        transform: rotate(-45deg); /* Rotate to form an 'X' */
+        top: 0; /* Move to center */
+        transform: rotate(45deg); /* Rotate to form the other part of the 'X' */
     }
 
     #hero {
@@ -1140,33 +1197,15 @@ footer {
 
 /* Animated Background */
 body {
-    /* Further reduced contrast and brightness, more curved, top-focused, blurred effect */
-    background: radial-gradient(circle at 25% 15%, rgba(155, 89, 182, 0.15) 0%, transparent 60%), /* Purple, top-left */
-                radial-gradient(circle at 75% 20%, rgba(255, 127, 80, 0.15) 0%, transparent 60%), /* Orange, top-right */
-                radial-gradient(circle at 50% 5%, rgba(30, 30, 47, 0.1) 0%, transparent 70%), /* Darker, very top */
-                var(--primary-color); /* Base background color */
-    background-size: 250% 250%, 250% 250%, 300% 300%, auto; /* Larger sizes for softer blur */
-    background-position: 0% 0%, 100% 0%, 50% 0%, 0% 0%; /* Initial positions, more top-focused */
-    animation: waveAnimation 25s ease infinite alternate; /* Even slower, smoother animation */
+    font-family: var(--font-family-main);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-@keyframes waveAnimation {
-    0% {
-        background-position: 0% 0%, 100% 0%, 50% 0%, 0% 0%;
-    }
-    25% {
-        background-position: 5% 5%, 95% 10%, 45% 2%, 0% 0%;
-    }
-    50% {
-        background-position: 10% 10%, 90% 5%, 55% 8%, 0% 0%;
-    }
-    75% {
-        background-position: 5% 15%, 95% 10%, 45% 12%, 0% 0%;
-    }
-    100% {
-        background-position: 0% 20%, 100% 15%, 50% 18%, 0% 0%;
-    }
-}
+
 
 @keyframes bounce-subtle {
     0%, 100% {
