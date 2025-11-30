@@ -790,6 +790,19 @@ footer {
         padding: var(--spacing-medium);
     }
 
+    nav { /* Make nav a flex container on small screens */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%; /* Ensure nav takes full width */
+    }
+
+    .nav-right-controls {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-medium); /* Space between theme toggle and menu toggle */
+    }
+
     nav ul {
         display: none; /* Hide by default on small screens */
         flex-direction: column;
