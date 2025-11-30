@@ -1130,7 +1130,8 @@ footer {
 
     .social-links {
         display: flex;
-        flex-direction: column;
+        flex-direction: row; /* Ensure horizontal alignment */
+        justify-content: center;
         gap: var(--spacing-medium);
     }
 
