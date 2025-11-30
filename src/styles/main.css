@@ -830,8 +830,7 @@ footer {
         transition: background-color 0.3s ease;
     }
 
-    .hamburger::before,
-    .hamburger::after {
+    .hamburger::after { /* Only using ::after for the second line */
         content: '';
         display: block;
         width: 25px;
@@ -839,26 +838,16 @@ footer {
         background-color: var(--secondary-color);
         position: absolute;
         transition: transform 0.3s ease;
-    }
-
-    .hamburger::before {
-        top: -8px;
-    }
-
-    .hamburger::after {
-        top: 8px;
+        top: 8px; /* Position the second line below the main line */
     }
 
     .menu-toggle.active .hamburger {
-        background-color: transparent;
-    }
-
-    .menu-toggle.active .hamburger::before {
-        transform: translateY(8px) rotate(45deg);
+        background-color: transparent; /* Hide the middle line */
     }
 
     .menu-toggle.active .hamburger::after {
-        transform: translateY(-8px) rotate(-45deg);
+        top: 0; /* Move the bottom line to the center */
+        transform: rotate(-45deg); /* Rotate to form an 'X' */
     }
 
     #hero h1 {
