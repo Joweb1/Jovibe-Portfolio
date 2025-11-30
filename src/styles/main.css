@@ -106,7 +106,7 @@ body.light-theme {
     --accent-color-orange: #ff5722; /* Darker orange */
     --header-bg-color: rgba(240, 242, 245, 0.8); /* Light theme header background */
     --header-bg-scrolled-color: rgba(240, 242, 245, 0.95); /* Light theme scrolled header background */
-    --hero-overlay-color: rgba(255, 255, 255, 0.5); /* Light theme hero overlay */
+    --hero-overlay-color: rgba(255, 255, 255, 0.7); /* Light theme hero overlay */
     --glass-bg-color: rgba(255, 255, 255, 0.6); /* Light theme glassmorphism background */
     --glass-border-color: rgba(0, 0, 0, 0.1); /* Light theme glassmorphism border */
     --newsletter-bg-color: rgba(240, 242, 245, 0.9); /* Light theme newsletter background */
