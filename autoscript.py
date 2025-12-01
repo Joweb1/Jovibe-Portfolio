@@ -13,14 +13,14 @@ PROJECTS = {
         "style": "Glassmorphism cards, smooth animations, responsive layout",
         "design_pattern": "Component-based with reusable UI modules",
         "branding": {
-            "logo": "jovibe_logo.png",
+            "logo": "jovibe.png",
             "font": "Roboto, sans-serif",
             "icon_set": "Material Icons"
         },
         "mock_data": {
             "portfolio": "6-8 sample projects with title, image, description, tech stack",
             "blog": "3-5 sample posts with title, excerpt, date",
-            "testimonials": "3 sample testimonials with name, message, role",
+            "testimonials": "4 sample testimonials with name, message, role",
             "contact_form": "Mock form with name, email, message"
         },
         "special_effects": "smooth color transitions"
@@ -116,9 +116,6 @@ if __name__ == "__main__":
     prompt = get_next_commit(current_index, "Jovibe Portfolio", first_run)
     
     if prompt:
-        print(f"DEBUG: current_index = {current_index}")
-        print(f"DEBUG: commit_number = {commits[current_index]['commit_number']}")
-        print(prompt)
         # Save index of the next commit for next iteration
         with open(last_run_file, "w") as f:
             f.write(str(current_index + 1)) # Save the index of the next commit to be processed
