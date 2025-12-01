@@ -34,6 +34,20 @@ document.addEventListener('DOMContentLoaded', () => {
         revealElements.forEach(el => observer.observe(el));
     };
 
+    // Function to load a component
+    const loadComponent = async (component, elementId) => {
+        try {
+            const response = await fetch(`components/${component}.html`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const content = await response.text();
+            document.getElementById(elementId).innerHTML = content;
+        } catch (error) {
+            console.error(`Error loading component ${component}:`, error);
+        }
+    };
+
     // Function to load content
     const loadContent = async (url) => {
         try {
@@ -59,6 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial load of home.html
     loadContent('pages/home.html');
+
+    // Load footer
+    loadComponent('Footer', 'footer-container');
 
     // Smooth scrolling for anchor links
     const applySmoothScrolling = () => {

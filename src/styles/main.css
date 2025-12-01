@@ -1618,7 +1618,7 @@ footer {
     }
 
     .social-links {
-        flex-direction: column; /* Stack social links vertically */
+        flex-direction: row; /* Stack social links vertically */
         gap: var(--spacing-small); /* Adjust gap for stacked items */
     }
 }
