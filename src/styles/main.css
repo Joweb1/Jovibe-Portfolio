@@ -258,17 +258,8 @@ nav a.active {
     height: 100%;
     background-color: var(--hero-overlay-color);
     z-index: -1;
-    opacity: 0; /* Initial state for fade-in */
-    transition: opacity 1s ease-out; /* Smooth transition for opacity */
+    opacity: 1; /* Overlay is always visible */
 }
-
-#hero.active::before {
-    opacity: 1; /* Fade in when #hero is active */
-}
-
-
-
-
 
 #hero h1 {
     font-size: 3rem;
@@ -277,8 +268,8 @@ nav a.active {
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: fadeInUp 1s ease-out forwards, gradient-animation 5s ease infinite;
-    opacity: 0;
+    animation: gradient-animation 5s ease infinite;
+    opacity: 1;
 }
 
 #hero p {
@@ -287,8 +278,8 @@ nav a.active {
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: fadeIn 1s ease-out 0.5s forwards, gradient-animation 5s ease infinite;
-    opacity: 0;
+    animation: gradient-animation 5s ease infinite;
+    opacity: 1;
 }
 
 @keyframes fadeIn {
@@ -334,9 +325,9 @@ nav a.active {
 }
 
 @keyframes background-gradient-animation {
-    0% { background-position: 0% 50%; opacity: 0; transform: scale(1.05); }
+    0% { background-position: 0% 50%; transform: scale(1.05); }
     50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; opacity: 1; transform: scale(1); }
+    100% { background-position: 0% 50%; transform: scale(1); }
 }
 
 @keyframes background-zoom {
@@ -555,64 +546,6 @@ nav a.active {
 
 #testimonials {
     padding: var(--spacing-large);
-    min-height: 500px; /* Increased height */
-}
-
-.testimonial-carousel-container {
-    position: relative;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.testimonial-carousel {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    gap: var(--spacing-large);
-    padding-bottom: var(--spacing-medium); /* Add some padding for the scrollbar */
-}
-
-.testimonial-card {
-    flex: 0 0 100%;
-    scroll-snap-align: center;
-    background: var(--glass-bg-color);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    padding: var(--spacing-large);
-    border: 1px solid var(--glass-border-color);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    .testimonial-card {
-        flex: 0 0 80%;
-    }
-}
-
-
-.small-button {
-    padding: var(--spacing-small) var(--spacing-medium);
-    font-size: 0.9rem;
-}
-
-.github-button {
-    background-color: var(--accent-color-purple);
-}
-
-.github-button:hover {
-    background-color: var(--accent-color-orange);
-}
-
-.project-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
-}
-
-#testimonials {
-    padding: var(--spacing-large);
 }
 
 #testimonials h2 {
@@ -622,25 +555,28 @@ nav a.active {
     color: var(--accent-color-purple);
 }
 
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-large);
+.testimonial-carousel-container {
+    position: relative;
+    max-width: 800px; /* A bit smaller for a tighter look */
+    margin: 0 auto;
+    overflow: hidden; /* This is crucial for the transform approach */
+}
+
+.testimonial-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* The magic transition */
 }
 
 .testimonial-card {
-    background: var(--glass-bg-color); /* Use variable */
+    flex: 0 0 100%;
+    width: 100%;
+    background: var(--glass-bg-color);
     backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: var(--spacing-large);
-    border: 1px solid var(--glass-border-color); /* Use variable */
+    border: 1px solid var(--glass-border-color);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease-in-out;
-    opacity: 0; /* Hidden by default */
-}
-
-.testimonial-card.active-slide {
-    opacity: 1;
+    box-sizing: border-box;
 }
 
 .testimonial-card:hover {
@@ -665,32 +601,6 @@ nav a.active {
 .testimonial-card span {
     font-weight: bold;
     color: var(--accent-color-orange);
-}
-
-.testimonial-carousel {
-    position: relative;
-    max-width: 900px; /* Adjust as needed */
-    margin: 0 auto var(--spacing-large) auto;
-    overflow: hidden;
-    min-height: 450px; /* Increased height for testimonials */
-    display: flex; /* Use flexbox to center content vertically */
-    align-items: center; /* Center content vertically */
-}
-
-.testimonial-carousel .testimonial-grid {
-    display: flex;
-    overflow-x: hidden; /* Hide scrollbar */
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    scroll-behavior: smooth;
-    gap: var(--spacing-large);
-}
-
-.testimonial-carousel .testimonial-card {
-    flex: 0 0 100%; /* Each card takes full width */
-    scroll-snap-align: start;
-    /* Reset some grid specific styles if necessary */
-    margin-bottom: 0;
 }
 
 .carousel-dots {
