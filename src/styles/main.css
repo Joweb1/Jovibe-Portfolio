@@ -1518,23 +1518,7 @@ footer {
         gap: var(--spacing-medium);
     }
 
-    .testimonial-carousel .testimonial-grid {
-        flex-wrap: wrap; /* Allow cards to wrap */
-        justify-content: center; /* Center cards when wrapped */
-        overflow-x: visible; /* Allow content to be visible */
-        scroll-snap-type: none; /* Disable scroll snapping */
-    }
-
-    .testimonial-carousel .testimonial-card {
-        flex: 1 1 100%; /* Allow cards to scale and take full width, but wrap */
-        max-width: 300px; /* Optional: limit max width for better stacking */
-    }
-
-    /* Hide carousel arrows and dots on smaller screens if carousel is disabled */
-    .testimonial-carousel .carousel-arrow,
-    .testimonial-carousel .carousel-dots {
-        display: none;
-    }
+    
 
     #faq {
         padding: var(--spacing-medium);

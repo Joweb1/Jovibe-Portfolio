@@ -478,6 +478,28 @@ document.addEventListener('DOMContentLoaded', () => {
         // Arrow button event listeners
         prevArrow.addEventListener('click', prevSlide);
         nextArrow.addEventListener('click', nextSlide);
+
+        // Touch/Swipe functionality for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        testimonialGrid.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            stopCarousel(); // Stop auto-play on touch
+        });
+
+        testimonialGrid.addEventListener('touchmove', (e) => {
+            touchEndX = e.touches[0].clientX;
+        });
+
+        testimonialGrid.addEventListener('touchend', () => {
+            if (touchStartX - touchEndX > 50) { // Swiped left
+                nextSlide();
+            } else if (touchEndX - touchStartX > 50) { // Swiped right
+                prevSlide();
+            }
+            startCarousel(); // Resume auto-play after touch
+        });
     }
 
     // Blog filter functionality
