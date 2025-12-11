@@ -408,6 +408,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const carouselDotsContainer = testimonialCarousel ? testimonialCarousel.querySelector('.carousel-dots') : null;
 
     if (testimonialCarousel && testimonialGrid && testimonialCards.length > 0 && carouselDotsContainer) {
+        console.log('Carousel elements found:', { testimonialCarousel, testimonialGrid, testimonialCards, carouselDotsContainer });
+        console.log('Number of testimonial cards:', testimonialCards.length);
+
         let currentIndex = 0;
         let intervalId;
 

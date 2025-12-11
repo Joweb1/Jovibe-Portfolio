@@ -607,6 +607,9 @@ nav a.active {
     max-width: 900px; /* Adjust as needed */
     margin: 0 auto var(--spacing-large) auto;
     overflow: hidden;
+    min-height: 450px; /* Increased height for testimonials */
+    display: flex; /* Use flexbox to center content vertically */
+    align-items: center; /* Center content vertically */
 }
 
 .testimonial-carousel .testimonial-grid {
@@ -1516,6 +1519,11 @@ footer {
 
     .testimonial-grid {
         gap: var(--spacing-medium);
+    }
+
+    .testimonial-carousel .testimonial-card {
+        width: 80%;
+        margin: 0 auto; /* Center the card */
     }
 
     
