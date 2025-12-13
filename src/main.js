@@ -441,8 +441,14 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const goToSlide = (index) => {
+            console.log('goToSlide called with index:', index);
             testimonialCards.forEach(card => card.classList.remove('active-slide')); // Remove active class from all cards
-            const targetX = testimonialCards[index].offsetLeft;
+            // Calculate targetX based on the width of the testimonialGrid and the index
+            const targetX = testimonialGrid.clientWidth * index;
+            console.log('Current testimonialGrid scrollLeft:', testimonialGrid.scrollLeft);
+            console.log('Calculated Target X for scroll:', targetX);
+            console.log('testimonialGrid scrollWidth:', testimonialGrid.scrollWidth);
+            console.log('testimonialGrid clientWidth:', testimonialGrid.clientWidth);
             smoothScrollLeftTo(testimonialGrid, targetX, 800); // Use smooth scroll with 800ms duration
             currentIndex = index;
             updateDots();

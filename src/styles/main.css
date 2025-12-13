@@ -1686,3 +1686,57 @@ footer {
 .form-message.error {
     background-color: #dc3545; /* Red */
 }
+
+.project-categories {
+    margin-top: var(--spacing-small);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-small);
+}
+
+.category-tag {
+    background-color: rgba(155, 89, 182, 0.2); /* Purple with transparency */
+    color: var(--accent-color-purple);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .project-overlay {
+        padding: var(--spacing-small);
+    }
+
+    .project-overlay h3 {
+        font-size: 1.2rem;
+    }
+
+    .project-overlay p {
+        font-size: 0.9rem;
+    }
+
+    .project-hover-icon {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-overlay h3 {
+        font-size: 1rem;
+    }
+
+    .project-overlay p {
+        font-size: 0.8rem;
+    }
+
+    .project-hover-icon {
+        font-size: 2rem;
+    }
+
+    .project-links {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
