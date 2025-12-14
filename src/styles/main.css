@@ -287,8 +287,17 @@ nav a.active {
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: fadeInUp 1s ease-out 0.5s forwards, gradient-animation 5s ease infinite;
+    animation: fadeIn 1s ease-out 0.5s forwards, gradient-animation 5s ease infinite;
     opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeInUp {
