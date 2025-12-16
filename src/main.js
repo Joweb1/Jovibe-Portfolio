@@ -403,112 +403,98 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Testimonials carousel functionality
     const testimonialCarousel = document.querySelector('.testimonial-carousel');
-    const testimonialGrid = testimonialCarousel ? testimonialCarousel.querySelector('.testimonial-grid') : null;
-    const testimonialCards = testimonialGrid ? testimonialGrid.querySelectorAll('.testimonial-card') : [];
-    const carouselDotsContainer = testimonialCarousel ? testimonialCarousel.querySelector('.carousel-dots') : null;
+    if (testimonialCarousel) {
+        const testimonialCards = testimonialCarousel.querySelectorAll('.testimonial-card');
+        const carouselDotsContainer = document.querySelector('.carousel-dots');
+        const prevArrow = document.querySelector('.prev-arrow');
+        const nextArrow = document.querySelector('.next-arrow');
 
-    if (testimonialCarousel && testimonialGrid && testimonialCards.length > 0 && carouselDotsContainer) {
-        console.log('Carousel elements found:', { testimonialCarousel, testimonialGrid, testimonialCards, carouselDotsContainer });
-        console.log('Number of testimonial cards:', testimonialCards.length);
+        if (testimonialCards.length > 0) {
+            let currentIndex = 0;
+            let intervalId;
 
-        let currentIndex = 0;
-        let intervalId;
+            const createDots = () => {
+                carouselDotsContainer.innerHTML = '';
+                testimonialCards.forEach((_, index) => {
+                    const dot = document.createElement('span');
+                    dot.classList.add('carousel-dot');
+                    if (index === 0) {
+                        dot.classList.add('active');
+                    }
+                    dot.addEventListener('click', () => goToSlide(index));
+                    carouselDotsContainer.appendChild(dot);
+                });
+            };
 
-        const prevArrow = testimonialCarousel.querySelector('.prev-arrow');
-        const nextArrow = testimonialCarousel.querySelector('.next-arrow');
+            const updateDots = () => {
+                const dots = carouselDotsContainer.querySelectorAll('.carousel-dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            };
 
-        const createDots = () => {
-            testimonialCards.forEach((_, index) => {
-                const dot = document.createElement('span');
-                dot.classList.add('carousel-dot');
-                if (index === 0) {
-                    dot.classList.add('active');
+            const goToSlide = (index) => {
+                const card = testimonialCards[index];
+                if (card) {
+                    testimonialCarousel.scrollTo({
+                        left: card.offsetLeft,
+                        behavior: 'smooth'
+                    });
+                    currentIndex = index;
+                    updateDots();
                 }
-                dot.addEventListener('click', () => goToSlide(index));
-                carouselDotsContainer.appendChild(dot);
-            });
-        };
+            };
 
-        const updateDots = () => {
-            const dots = carouselDotsContainer.querySelectorAll('.carousel-dot');
-            dots.forEach((dot, index) => {
-                if (index === currentIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        };
+            const nextSlide = () => {
+                currentIndex = (currentIndex + 1) % testimonialCards.length;
+                goToSlide(currentIndex);
+            };
 
-        const goToSlide = (index) => {
-            console.log('goToSlide called with index:', index);
-            testimonialCards.forEach(card => card.classList.remove('active-slide')); // Remove active class from all cards
-            // Calculate targetX based on the width of the testimonialGrid and the index
-            const targetX = testimonialGrid.clientWidth * index;
-            console.log('Current testimonialGrid scrollLeft:', testimonialGrid.scrollLeft);
-            console.log('Calculated Target X for scroll:', targetX);
-            console.log('testimonialGrid scrollWidth:', testimonialGrid.scrollWidth);
-            console.log('testimonialGrid clientWidth:', testimonialGrid.clientWidth);
-            smoothScrollLeftTo(testimonialGrid, targetX, 800); // Use smooth scroll with 800ms duration
-            currentIndex = index;
-            updateDots();
-            // Add active class to the new current card after a short delay to allow scroll to settle
-            setTimeout(() => {
-                testimonialCards[currentIndex].classList.add('active-slide');
-            }, 50); // Short delay
-        };
+            const prevSlide = () => {
+                currentIndex = (currentIndex - 1 + testimonialCards.length) % testimonialCards.length;
+                goToSlide(currentIndex);
+            };
 
-        const nextSlide = () => {
-            currentIndex = (currentIndex + 1) % testimonialCards.length;
-            goToSlide(currentIndex);
-        };
+            const startCarousel = () => {
+                intervalId = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            };
 
-        const prevSlide = () => {
-            currentIndex = (currentIndex - 1 + testimonialCards.length) % testimonialCards.length;
-            goToSlide(currentIndex);
-        };
+            const stopCarousel = () => {
+                clearInterval(intervalId);
+            };
 
-        const startCarousel = () => {
-            intervalId = setInterval(nextSlide, 5000); // Change slide every 5 seconds
-        };
+            createDots();
+            startCarousel();
 
-        const stopCarousel = () => {
-            clearInterval(intervalId);
-        };
+            testimonialCarousel.addEventListener('mouseenter', stopCarousel);
+            testimonialCarousel.addEventListener('mouseleave', startCarousel);
 
-        createDots();
-        startCarousel();
-        testimonialCards[currentIndex].classList.add('active-slide'); // Set initial active slide
-
-        // Pause carousel on hover
-        testimonialCarousel.addEventListener('mouseenter', stopCarousel);
-        testimonialCarousel.addEventListener('mouseleave', startCarousel);
-
-        // Arrow button event listeners
-        prevArrow.addEventListener('click', prevSlide);
-        nextArrow.addEventListener('click', nextSlide);
-
-        // Touch/Swipe functionality for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        testimonialGrid.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-            stopCarousel(); // Stop auto-play on touch
-        });
-
-        testimonialGrid.addEventListener('touchmove', (e) => {
-            touchEndX = e.touches[0].clientX;
-        });
-
-        testimonialGrid.addEventListener('touchend', () => {
-            if (touchStartX - touchEndX > 50) { // Swiped left
-                nextSlide();
-            } else if (touchEndX - touchStartX > 50) { // Swiped right
-                prevSlide();
+            if (prevArrow && nextArrow) {
+                prevArrow.addEventListener('click', prevSlide);
+                nextArrow.addEventListener('click', nextSlide);
             }
-            startCarousel(); // Resume auto-play after touch
-        });
+
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            testimonialCarousel.addEventListener('touchstart', (e) => {
+                touchStartX = e.touches[0].clientX;
+                stopCarousel();
+            });
+
+            testimonialCarousel.addEventListener('touchmove', (e) => {
+                touchEndX = e.touches[0].clientX;
+            });
+
+            testimonialCarousel.addEventListener('touchend', () => {
+                if (touchStartX - touchEndX > 50) {
+                    nextSlide();
+                } else if (touchEndX - touchStartX > 50) {
+                    prevSlide();
+                }
+                startCarousel();
+            });
+        }
     }
 
     // Blog filter functionality
