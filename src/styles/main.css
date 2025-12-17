@@ -434,7 +434,15 @@ nav a.active {
     font-size: 3rem;
     color: var(--accent-color-orange);
     margin-bottom: var(--spacing-medium);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.6s ease-out; /* Added opacity to transition */
+    opacity: 0; /* Initial state for fade-in */
+    transform: translateY(20px); /* Initial state for slide-up */
+}
+
+.service-card.active .material-icons {
+    opacity: 1; /* Fade in when active */
+    transform: translateY(0); /* Slide up when active */
+    transition-delay: 0.2s; /* Delay the icon animation slightly after the card */
 }
 
 .service-card:hover .material-icons {
