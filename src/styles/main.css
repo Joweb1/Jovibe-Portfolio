@@ -1649,13 +1649,13 @@ footer {
 
     #hero h1 {
         font-size: 1.8rem; /* Further adjust font size for mobile */
-        line-height: 1.4;
+        line-height: 1.2; /* Adjusted line height for readability */
         margin-bottom: var(--spacing-small); /* Ensure consistent small spacing */
     }
 
     #hero p {
         font-size: 0.9rem; /* Further adjust font size for mobile */
-        line-height: 1.6;
+        line-height: 1.6; /* Adjusted line height for readability */
         margin-bottom: var(--spacing-medium); /* Ensure consistent medium spacing */
     }
 
