@@ -16,9 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const delay = entry.target.dataset.delay || 0;
+                    const delay = parseInt(entry.target.dataset.delay) || 0;
                     setTimeout(() => {
                         entry.target.classList.add('active');
+                        // If the revealed element has children with data-delay, apply staggered animation to them
+                        entry.target.querySelectorAll('[data-delay]').forEach(child => {
+                            const childDelay = parseInt(child.dataset.delay) || 0;
+                            child.style.setProperty('--animation-delay', `${childDelay}ms`);
+                            child.classList.add('active'); // Add active class to children for animation
+                        });
                     }, delay);
                     observer.unobserve(entry.target); // Stop observing once animated
                 }
@@ -41,6 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
             applySmoothScrolling();
             // Initialize scroll reveal animations after content is loaded
             initializeScrollReveal();
+            // Set up blog pagination after content is loaded
+            setupBlogPagination();
         } catch (error) {
             console.error('Error loading content:', error);
             app.innerHTML = '<p>Error loading page.</p>';
@@ -594,7 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Call setupBlogPagination after content is loaded
     // This needs to be called after loadContent('pages/home.html');
     // For now, I'll add it directly here, assuming blog cards are present on initial load.
-    setupBlogPagination();
+    // setupBlogPagination();
 
     // Nav section highlight on scroll
     const navLinksForScroll = document.querySelectorAll('.nav-links a');
