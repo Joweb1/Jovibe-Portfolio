@@ -48,7 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Initialize scroll reveal animations after content is loaded
             initializeScrollReveal();
             // Set up blog pagination after content is loaded
-            setupBlogPagination();
+            setTimeout(() => {
+                setupBlogPagination();
+            }, 0);
         } catch (error) {
             console.error('Error loading content:', error);
             app.innerHTML = '<p>Error loading page.</p>';
