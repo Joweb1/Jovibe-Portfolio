@@ -1269,6 +1269,17 @@ footer {
     height: 32px; /* Ensure consistent size */
 }
 
+.social-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color-orange);
+    transform: translateY(-3px) scale(1.05);
+}
+
 .tech-stack {
     margin-top: var(--spacing-small);
     margin-bottom: var(--spacing-medium);
