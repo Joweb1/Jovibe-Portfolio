@@ -1,37 +1,189 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const app = document.getElementById('app');
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    // Function to initialize all dynamic components
+    const initComponents = () => {
+        // Testimonials carousel functionality
+        const testimonialCarousel = document.querySelector('.testimonial-carousel');
+        if (testimonialCarousel) {
+            const testimonialCards = testimonialCarousel.querySelectorAll('.testimonial-card');
+            const carouselDotsContainer = document.querySelector('.carousel-dots');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
 
-    // Function to initialize scroll reveal animations
-    const initializeScrollReveal = () => {
-        const revealElements = document.querySelectorAll('.reveal');
+            if (testimonialCards.length > 0) {
+                let currentIndex = 0;
+                let intervalId;
 
-        const observerOptions = {
-            root: null, // viewport
-            rootMargin: '0px',
-            threshold: 0.1 // 10% of element visible to trigger
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const delay = parseInt(entry.target.dataset.delay) || 0;
-                    setTimeout(() => {
-                        entry.target.classList.add('active');
-                        // If the revealed element has children with data-delay, apply staggered animation to them
-                        entry.target.querySelectorAll('[data-delay]').forEach(child => {
-                            const childDelay = parseInt(child.dataset.delay) || 0;
-                            child.style.setProperty('--animation-delay', `${childDelay}ms`);
-                            child.classList.add('active'); // Add active class to children for animation
+                const createDots = () => {
+                    if (carouselDotsContainer) {
+                        carouselDotsContainer.innerHTML = '';
+                        testimonialCards.forEach((_, index) => {
+                            const dot = document.createElement('span');
+                            dot.classList.add('carousel-dot');
+                            if (index === 0) {
+                                dot.classList.add('active');
+                            }
+                            dot.addEventListener('click', () => goToSlide(index));
+                            carouselDotsContainer.appendChild(dot);
                         });
-                    }, delay);
-                    observer.unobserve(entry.target); // Stop observing once animated
-                }
-            });
-        }, observerOptions);
+                    }
+                };
 
-        revealElements.forEach(el => observer.observe(el));
+                const updateDots = () => {
+                    if (carouselDotsContainer) {
+                        const dots = carouselDotsContainer.querySelectorAll('.carousel-dot');
+                        dots.forEach((dot, index) => {
+                            dot.classList.toggle('active', index === currentIndex);
+                        });
+                    }
+                };
+
+                const goToSlide = (index) => {
+                    const card = testimonialCards[index];
+                    if (card) {
+                        testimonialCarousel.scrollTo({
+                            left: card.offsetLeft,
+                            behavior: 'smooth'
+                        });
+                        currentIndex = index;
+                        updateDots();
+                    }
+                };
+
+                const nextSlide = () => {
+                    currentIndex = (currentIndex + 1) % testimonialCards.length;
+                    goToSlide(currentIndex);
+                };
+
+                const prevSlide = () => {
+                    currentIndex = (currentIndex - 1 + testimonialCards.length) % testimonialCards.length;
+                    goToSlide(currentIndex);
+                };
+
+                const startCarousel = () => {
+                    intervalId = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+                };
+
+                const stopCarousel = () => {
+                    clearInterval(intervalId);
+                };
+
+                createDots();
+                startCarousel();
+
+                testimonialCarousel.addEventListener('mouseenter', stopCarousel);
+                testimonialCarousel.addEventListener('mouseleave', startCarousel);
+
+                if (prevArrow && nextArrow) {
+                    prevArrow.addEventListener('click', prevSlide);
+                    nextArrow.addEventListener('click', nextSlide);
+                }
+
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                testimonialCarousel.addEventListener('touchstart', (e) => {
+                    touchStartX = e.touches[0].clientX;
+                    stopCarousel();
+                });
+
+                testimonialCarousel.addEventListener('touchmove', (e) => {
+                    touchEndX = e.touches[0].clientX;
+                });
+
+                testimonialCarousel.addEventListener('touchend', () => {
+                    if (touchStartX - touchEndX > 50) {
+                        nextSlide();
+                    } else if (touchEndX - touchStartX > 50) {
+                        prevSlide();
+                    }
+                    startCarousel();
+                });
+            }
+        }
+
+        // Blog pagination functionality
+        const blogPaginationCards = document.querySelectorAll('.blog-grid .blog-card');
+        const paginationContainer = document.querySelector('.blog-pagination');
+        const prevPageBtn = document.getElementById('prev-page');
+        const nextPageBtn = document.getElementById('next-page');
+        const pageNumbersContainer = document.querySelector('.page-numbers');
+
+        if (blogPaginationCards.length > 0 && paginationContainer) {
+            const postsPerPage = 3; // Number of blog posts per page
+            let currentPage = 1;
+
+            const displayBlogPage = (page) => {
+                const startIndex = (page - 1) * postsPerPage;
+                const endIndex = startIndex + postsPerPage;
+
+                blogPaginationCards.forEach((card, index) => {
+                    if (index >= startIndex && index < endIndex) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Update active page number button
+                if (pageNumbersContainer) {
+                    const pageNumberButtons = pageNumbersContainer.querySelectorAll('.page-number');
+                    pageNumberButtons.forEach(button => {
+                        if (parseInt(button.dataset.page) === page) {
+                            button.classList.add('active');
+                        } else {
+                            button.classList.remove('active');
+                        }
+                    });
+                }
+
+                // Enable/disable prev/next buttons
+                if (prevPageBtn) {
+                    prevPageBtn.disabled = page === 1;
+                }
+                if (nextPageBtn) {
+                    nextPageBtn.disabled = page === Math.ceil(blogPaginationCards.length / postsPerPage);
+                }
+            };
+
+            const setupBlogPagination = () => {
+                const totalPages = Math.ceil(blogPaginationCards.length / postsPerPage);
+                if (pageNumbersContainer) {
+                    pageNumbersContainer.innerHTML = ''; // Clear existing page numbers
+
+                    for (let i = 1; i <= totalPages; i++) {
+                        const button = document.createElement('button');
+                        button.classList.add('pagination-button', 'page-number');
+                        button.dataset.page = i;
+                        button.textContent = i;
+                        button.addEventListener('click', () => {
+                            currentPage = i;
+                            displayBlogPage(currentPage);
+                        });
+                        pageNumbersContainer.appendChild(button);
+                    }
+                }
+
+                if (prevPageBtn) {
+                    prevPageBtn.addEventListener('click', () => {
+                        if (currentPage > 1) {
+                            currentPage--;
+                            displayBlogPage(currentPage);
+                        }
+                    });
+                }
+
+                if (nextPageBtn) {
+                    nextPageBtn.addEventListener('click', () => {
+                        if (currentPage < totalPages) {
+                            currentPage++;
+                            displayBlogPage(currentPage);
+                        }
+                    });
+                }
+
+                displayBlogPage(currentPage); // Display initial page
+            };
+            setupBlogPagination();
+        }
     };
 
     // Function to load content
@@ -45,12 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
             app.innerHTML = content;
             // Re-apply smooth scrolling after content is loaded
             applySmoothScrolling();
-            // Initialize scroll reveal animations after content is loaded
-            initializeScrollReveal();
-            // Set up blog pagination after content is loaded
-            setTimeout(() => {
-                setupBlogPagination();
-            }, 0);
+            // Initialize all components after content is loaded
+            requestAnimationFrame(initComponents);
         } catch (error) {
             console.error('Error loading content:', error);
             app.innerHTML = '<p>Error loading page.</p>';
@@ -133,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle mobile menu
     if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
+        menuToggle.addEventListener('click', (). => {
             navLinks.classList.toggle('active');
             menuToggle.classList.toggle('active');
         });
@@ -410,201 +558,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // Testimonials carousel functionality
-    const testimonialCarousel = document.querySelector('.testimonial-carousel');
-    if (testimonialCarousel) {
-        const testimonialCards = testimonialCarousel.querySelectorAll('.testimonial-card');
-        const carouselDotsContainer = document.querySelector('.carousel-dots');
-        const prevArrow = document.querySelector('.prev-arrow');
-        const nextArrow = document.querySelector('.next-arrow');
-
-        if (testimonialCards.length > 0) {
-            let currentIndex = 0;
-            let intervalId;
-
-            const createDots = () => {
-                carouselDotsContainer.innerHTML = '';
-                testimonialCards.forEach((_, index) => {
-                    const dot = document.createElement('span');
-                    dot.classList.add('carousel-dot');
-                    if (index === 0) {
-                        dot.classList.add('active');
-                    }
-                    dot.addEventListener('click', () => goToSlide(index));
-                    carouselDotsContainer.appendChild(dot);
-                });
-            };
-
-            const updateDots = () => {
-                const dots = carouselDotsContainer.querySelectorAll('.carousel-dot');
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === currentIndex);
-                });
-            };
-
-            const goToSlide = (index) => {
-                const card = testimonialCards[index];
-                if (card) {
-                    testimonialCarousel.scrollTo({
-                        left: card.offsetLeft,
-                        behavior: 'smooth'
-                    });
-                    currentIndex = index;
-                    updateDots();
-                }
-            };
-
-            const nextSlide = () => {
-                currentIndex = (currentIndex + 1) % testimonialCards.length;
-                goToSlide(currentIndex);
-            };
-
-            const prevSlide = () => {
-                currentIndex = (currentIndex - 1 + testimonialCards.length) % testimonialCards.length;
-                goToSlide(currentIndex);
-            };
-
-            const startCarousel = () => {
-                intervalId = setInterval(nextSlide, 5000); // Change slide every 5 seconds
-            };
-
-            const stopCarousel = () => {
-                clearInterval(intervalId);
-            };
-
-            createDots();
-            startCarousel();
-
-            testimonialCarousel.addEventListener('mouseenter', stopCarousel);
-            testimonialCarousel.addEventListener('mouseleave', startCarousel);
-
-            if (prevArrow && nextArrow) {
-                prevArrow.addEventListener('click', prevSlide);
-                nextArrow.addEventListener('click', nextSlide);
-            }
-
-            let touchStartX = 0;
-            let touchEndX = 0;
-
-            testimonialCarousel.addEventListener('touchstart', (e) => {
-                touchStartX = e.touches[0].clientX;
-                stopCarousel();
-            });
-
-            testimonialCarousel.addEventListener('touchmove', (e) => {
-                touchEndX = e.touches[0].clientX;
-            });
-
-            testimonialCarousel.addEventListener('touchend', () => {
-                if (touchStartX - touchEndX > 50) {
-                    nextSlide();
-                } else if (touchEndX - touchStartX > 50) {
-                    prevSlide();
-                }
-                startCarousel();
-            });
-        }
-    }
-
-    // Blog filter functionality
-    const blogFilterButtons = document.querySelectorAll('.blog-filters .filter-button');
-    const blogCards = document.querySelectorAll('.blog-grid .blog-card');
-
-    blogFilterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            blogFilterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to the clicked button
-            button.classList.add('active');
-
-            const filter = button.dataset.filter;
-
-            blogCards.forEach(card => {
-                const category = card.dataset.category;
-                if (filter === 'all' || category === filter) {
-                    card.style.display = 'block'; // Show the card
-                } else {
-                    card.style.display = 'none'; // Hide the card
-                }
-            });
-        });
-    });
-
-    // Blog pagination functionality
-    const blogPaginationCards = document.querySelectorAll('.blog-grid .blog-card');
-    const paginationContainer = document.querySelector('.blog-pagination');
-    const prevPageBtn = document.getElementById('prev-page');
-    const nextPageBtn = document.getElementById('next-page');
-    const pageNumbersContainer = document.querySelector('.page-numbers');
-
-    const postsPerPage = 3; // Number of blog posts per page
-    let currentPage = 1;
-
-    const displayBlogPage = (page) => {
-        const startIndex = (page - 1) * postsPerPage;
-        const endIndex = startIndex + postsPerPage;
-
-        blogPaginationCards.forEach((card, index) => {
-            if (index >= startIndex && index < endIndex) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-
-        // Update active page number button
-        const pageNumberButtons = pageNumbersContainer.querySelectorAll('.page-number');
-        pageNumberButtons.forEach(button => {
-            if (parseInt(button.dataset.page) === page) {
-                button.classList.add('active');
-            } else {
-                button.classList.remove('active');
-            }
-        });
-
-        // Enable/disable prev/next buttons
-        prevPageBtn.disabled = page === 1;
-        nextPageBtn.disabled = page === Math.ceil(blogPaginationCards.length / postsPerPage);
-    };
-
-    const setupBlogPagination = () => {
-        const totalPages = Math.ceil(blogPaginationCards.length / postsPerPage);
-        pageNumbersContainer.innerHTML = ''; // Clear existing page numbers
-
-        for (let i = 1; i <= totalPages; i++) {
-            const button = document.createElement('button');
-            button.classList.add('pagination-button', 'page-number');
-            button.dataset.page = i;
-            button.textContent = i;
-            button.addEventListener('click', () => {
-                currentPage = i;
-                displayBlogPage(currentPage);
-            });
-            pageNumbersContainer.appendChild(button);
-        }
-
-        prevPageBtn.addEventListener('click', () => {
-            if (currentPage > 1) {
-                currentPage--;
-                displayBlogPage(currentPage);
-            }
-        });
-
-        nextPageBtn.addEventListener('click', () => {
-            if (currentPage < totalPages) {
-                currentPage++;
-                displayBlogPage(currentPage);
-            }
-        });
-
-        displayBlogPage(currentPage); // Display initial page
-    };
-
-    // Call setupBlogPagination after content is loaded
-    // This needs to be called after loadContent('pages/home.html');
-    // For now, I'll add it directly here, assuming blog cards are present on initial load.
-    // setupBlogPagination();
 
     // Nav section highlight on scroll
     const navLinksForScroll = document.querySelectorAll('.nav-links a');
