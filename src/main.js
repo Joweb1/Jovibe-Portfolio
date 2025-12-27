@@ -281,7 +281,7 @@
 
     // Toggle mobile menu
     if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', (). => {
+        menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             menuToggle.classList.toggle('active');
         });
